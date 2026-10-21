@@ -1,0 +1,61 @@
+# ============================================================
+# 实验4：反应速度测试器 引脚约束
+# 板卡：DMZ-EG4S20（EG4S20BG256，50 MHz）
+#
+# 顶层模块：reaction_timer_board
+#
+# 引脚来源：大拇指 DMZ-EG4S20 板卡文档（表1.2/1.3/1.4）。
+# 上板前请对照丝印/原理图再确认一次，尤其是 rst_n 和矩阵键盘。
+#
+# 电平约定：
+#   clk        : 50 MHz，LVCMOS33
+#   rst_n      : 低有效
+#   key_row    : 输出，低有效（逐行扫描）
+#   key_col    : 输入，外部上拉，按下为低
+#   ready_led  : 高电平点亮
+#   seg        : 高电平点亮（a=bit0 ... g=bit6, dp=bit7）
+#   digit_sel  : 低电平选中（[0]=最右位）
+# ============================================================
+
+# ---------------- 时钟 / 复位 ----------------
+set_pin_assignment { clk }   { LOCATION = R7; IOSTANDARD = LVCMOS33; }
+# 注意：文档标注 A9 与 SW0 同脚。若板上 RST 按键不是 A9，
+# 或 SW0 拨码会一直拉低该脚，请换成实际复位按键引脚。
+set_pin_assignment { rst_n } { LOCATION = A9; IOSTANDARD = LVCMOS33; }
+
+# ---------------- 4x4 矩阵键盘 ----------------
+# 行输出（低有效）
+set_pin_assignment { key_row[0] } { LOCATION = D9;  IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[1] } { LOCATION = F9;  IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[2] } { LOCATION = C10; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[3] } { LOCATION = E10; IOSTANDARD = LVCMOS33; }
+
+# 列输入（按下为低）
+# 如果板上没有外部上拉，需要在 TD 中给这些脚配置内部上拉
+# （不同 TD 版本关键字可能为 PULLMODE=UP / PULLUP，先在 GUI 里确认）。
+set_pin_assignment { key_col[0] } { LOCATION = E11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[1] } { LOCATION = D11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[2] } { LOCATION = C11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[3] } { LOCATION = F10; IOSTANDARD = LVCMOS33; }
+
+# ---------------- 状态灯 ----------------
+# LED0，高电平点亮
+set_pin_assignment { ready_led } { LOCATION = B14; IOSTANDARD = LVCMOS33; }
+
+# ---------------- 4 位数码管：段码 ----------------
+# 共阴数码管，段高电平点亮
+set_pin_assignment { seg[0] } { LOCATION = A4; IOSTANDARD = LVCMOS33; }  # a
+set_pin_assignment { seg[1] } { LOCATION = A6; IOSTANDARD = LVCMOS33; }  # b
+set_pin_assignment { seg[2] } { LOCATION = B8; IOSTANDARD = LVCMOS33; }  # c
+set_pin_assignment { seg[3] } { LOCATION = E8; IOSTANDARD = LVCMOS33; }  # d
+set_pin_assignment { seg[4] } { LOCATION = A7; IOSTANDARD = LVCMOS33; }  # e
+set_pin_assignment { seg[5] } { LOCATION = B5; IOSTANDARD = LVCMOS33; }  # f
+set_pin_assignment { seg[6] } { LOCATION = A8; IOSTANDARD = LVCMOS33; }  # g
+set_pin_assignment { seg[7] } { LOCATION = C8; IOSTANDARD = LVCMOS33; }  # dp
+
+# ---------------- 4 位数码管：位选 ----------------
+# 低电平选中；[0] = COM4 最右位，[3] = COM1 最左位
+set_pin_assignment { digit_sel[0] } { LOCATION = C9; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { digit_sel[1] } { LOCATION = B6; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { digit_sel[2] } { LOCATION = A5; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { digit_sel[3] } { LOCATION = A3; IOSTANDARD = LVCMOS33; }

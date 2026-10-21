@@ -1,0 +1,44 @@
+# ============================================================
+# 4 位十进制计算器 引脚约束
+# 板卡：DMZ-EG4S20（EG4S20BG256，50 MHz）
+# 顶层：calculator_top
+#
+# 电平约定：
+#   clk        : 50 MHz，LVCMOS33
+#   rst_n      : 低有效
+#   key_row    : 输出，低有效（逐行扫描）
+#   key_col    : 输入，外部上拉，按下为低
+#   seg        : 共阴，段高电平点亮（a=bit0 ... g=bit6, dp=bit7）
+#   digit_sel  : 低电平选中（[0]=最右位）
+# ============================================================
+
+# ---------------- 时钟 / 复位 ----------------
+set_pin_assignment { clk }   { LOCATION = R7; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { rst_n } { LOCATION = A9; IOSTANDARD = LVCMOS33; }
+
+# ---------------- 4x4 矩阵键盘 ----------------
+set_pin_assignment { key_row[0] } { LOCATION = D9;  IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[1] } { LOCATION = F9;  IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[2] } { LOCATION = C10; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_row[3] } { LOCATION = E10; IOSTANDARD = LVCMOS33; }
+
+set_pin_assignment { key_col[0] } { LOCATION = E11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[1] } { LOCATION = D11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[2] } { LOCATION = C11; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { key_col[3] } { LOCATION = F10; IOSTANDARD = LVCMOS33; }
+
+# ---------------- 4 位数码管：段码 ----------------
+set_pin_assignment { seg[0] } { LOCATION = A4; IOSTANDARD = LVCMOS33; }  # a
+set_pin_assignment { seg[1] } { LOCATION = A6; IOSTANDARD = LVCMOS33; }  # b
+set_pin_assignment { seg[2] } { LOCATION = B8; IOSTANDARD = LVCMOS33; }  # c
+set_pin_assignment { seg[3] } { LOCATION = E8; IOSTANDARD = LVCMOS33; }  # d
+set_pin_assignment { seg[4] } { LOCATION = A7; IOSTANDARD = LVCMOS33; }  # e
+set_pin_assignment { seg[5] } { LOCATION = B5; IOSTANDARD = LVCMOS33; }  # f
+set_pin_assignment { seg[6] } { LOCATION = A8; IOSTANDARD = LVCMOS33; }  # g
+set_pin_assignment { seg[7] } { LOCATION = C8; IOSTANDARD = LVCMOS33; }  # dp
+
+# ---------------- 4 位数码管：位选 ----------------
+set_pin_assignment { digit_sel[0] } { LOCATION = C9; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { digit_sel[1] } { LOCATION = B6; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { digit_sel[2] } { LOCATION = A5; IOSTANDARD = LVCMOS33; }
+set_pin_assignment { digit_sel[3] } { LOCATION = A3; IOSTANDARD = LVCMOS33; }
