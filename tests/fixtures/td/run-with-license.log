@@ -1,0 +1,562 @@
+============================================================
+   Tang Dynasty, V4.6.64949
+   Copyright:   Shanghai Anlogic Infotech Co., Ltd.
+                2011 - 2022
+   Executable = /home/example-user/tools/anlogic/TD_4.6.7_Linux/bin/td
+   Built by =   example-user
+   Built at =   12:53, Oct 23
+   Run by =     example-user
+   Run Date =   Fri Oct 23 13:03:48 2026
+
+   Run on =     example-host
+============================================================
+RUN-1002 : start command "import_device eagle_s20.db -package BG256"
+ARC-6008 WARNING: Found duplicated IO adc_vref in PKG.
+ARC-1001 : Device Initialization.
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :            OPTION            |          IO          |   SETTING   
+ARC-1001 : ------------------------------------------------------------------
+ARC-1001 :   cso_b/cclk/mosi/miso/dout  |  T3/R11/T10/P10/S11  |    gpio    
+ARC-1001 :             done             |         P13          |    gpio    
+ARC-1001 :           program_b          |          T2          |  dedicated  
+ARC-1001 :        tdi/tms/tck/tdo       |   C12/A15/C14/E14    |  dedicated  
+ARC-1001 : ------------------------------------------------------------------
+ARC-1004 : Device setting, marked 5 dedicate IOs in total.
+RUN-1002 : start command "read_verilog -file rtl/reaction_timer_board.v -top reaction_timer_board -verbose 1"
+-- analyze verilog file rtl/reaction_timer_board.v (VLG-002)
+HDL-1007 : analyze verilog file rtl/reaction_timer_board.v
+rtl/reaction_timer_board.v(696): INFO: elaborate module reaction_timer_board (VLG-004)
+HDL-1007 : elaborate module reaction_timer_board in rtl/reaction_timer_board.v(696)
+rtl/reaction_timer_board.v(645): INFO: elaborate module matrix_key_scanner (VLG-004)
+HDL-1007 : elaborate module matrix_key_scanner in rtl/reaction_timer_board.v(645)
+rtl/reaction_timer_board.v(547): INFO: elaborate module reaction_timer_top (VLG-004)
+HDL-1007 : elaborate module reaction_timer_top in rtl/reaction_timer_board.v(547)
+rtl/reaction_timer_board.v(32): INFO: elaborate module input_sync_debounce (VLG-004)
+HDL-1007 : elaborate module input_sync_debounce in rtl/reaction_timer_board.v(32)
+rtl/reaction_timer_board.v(118): INFO: elaborate module delay_generator (VLG-004)
+HDL-1007 : elaborate module delay_generator in rtl/reaction_timer_board.v(118)
+rtl/reaction_timer_board.v(202): INFO: elaborate module ms_counter (VLG-004)
+HDL-1007 : elaborate module ms_counter in rtl/reaction_timer_board.v(202)
+rtl/reaction_timer_board.v(240): INFO: elaborate module display_driver (VLG-004)
+HDL-1007 : elaborate module display_driver in rtl/reaction_timer_board.v(240)
+rtl/reaction_timer_board.v(400): INFO: elaborate module reaction_fsm (VLG-004)
+HDL-1007 : elaborate module reaction_fsm in rtl/reaction_timer_board.v(400)
+rtl/reaction_timer_board.v(341): INFO: elaborate module bin_to_bcd_seq (VLG-004)
+HDL-1007 : elaborate module bin_to_bcd_seq in rtl/reaction_timer_board.v(341)
+HDL-1200 : Current top model is reaction_timer_board
+HDL-1100 : Inferred 0 RAMs.
+RUN-1002 : start command "set_pin_assignment  clk   LOCATION = R7; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  rst_n   LOCATION = A9; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_row[0]   LOCATION = D9;  IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_row[1]   LOCATION = F9;  IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_row[2]   LOCATION = C10; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_row[3]   LOCATION = E10; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_col[0]   LOCATION = E11; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_col[1]   LOCATION = D11; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_col[2]   LOCATION = C11; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  key_col[3]   LOCATION = F10; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  ready_led   LOCATION = B14; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  seg[0]   LOCATION = A4; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  seg[1]   LOCATION = A6; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  seg[2]   LOCATION = B8; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  seg[3]   LOCATION = E8; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  seg[4]   LOCATION = A7; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  seg[5]   LOCATION = B5; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  seg[6]   LOCATION = A8; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  seg[7]   LOCATION = C8; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  digit_sel[0]   LOCATION = C9; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  digit_sel[1]   LOCATION = B6; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  digit_sel[2]   LOCATION = A5; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "set_pin_assignment  digit_sel[3]   LOCATION = A3; IOSTANDARD = LVCMOS33; "
+RUN-1002 : start command "optimize_rtl"
+RUN-1001 : Open license file /home/example-user/tools/anlogic/TD_4.6.7_Linux/license/Anlogic.lic
+SYN-1012 : SanityCheck: Model "reaction_timer_board"
+SYN-1012 : SanityCheck: Model "reaction_timer_top"
+SYN-1012 : SanityCheck: Model "delay_generator"
+SYN-1012 : SanityCheck: Model "display_driver"
+SYN-1012 : SanityCheck: Model "input_sync_debounce"
+SYN-1012 : SanityCheck: Model "ms_counter"
+SYN-1012 : SanityCheck: Model "reaction_fsm"
+SYN-1012 : SanityCheck: Model "bin_to_bcd_seq"
+SYN-1012 : SanityCheck: Model "matrix_key_scanner"
+SYN-1016 : Merged 56 instances.
+SYN-1016 : Merged 4 instances.
+SYN-1016 : Merged 18 instances.
+SYN-1016 : Merged 1 instances.
+SYN-1011 : Flatten model reaction_timer_board
+SYN-1011 : Flatten model reaction_timer_top
+SYN-1011 : Flatten model delay_generator
+SYN-1011 : Flatten model display_driver
+SYN-1011 : Flatten model input_sync_debounce
+SYN-1011 : Flatten model ms_counter
+SYN-1011 : Flatten model reaction_fsm
+SYN-1011 : Flatten model bin_to_bcd_seq
+SYN-1016 : Merged 4 instances.
+SYN-1016 : Merged 8 instances.
+SYN-1011 : Flatten model matrix_key_scanner
+SYN-1016 : Merged 4 instances.
+SYN-1014 : Optimize round 1
+SYN-1032 : 1772/55 useful/useless nets, 1540/53 useful/useless insts
+SYN-1019 : Optimized 1 mux instances.
+SYN-1020 : Optimized 174 distributor mux.
+SYN-1016 : Merged 332 instances.
+SYN-1015 : Optimize round 1, 740 better
+SYN-1014 : Optimize round 2
+SYN-1032 : 1458/164 useful/useless nets, 1234/197 useful/useless insts
+SYN-1017 : Remove 1 const input seq instances
+SYN-1002 :     u_dut/u_delay_generator/reg2_b0
+SYN-1019 : Optimized 0 mux instances.
+SYN-1015 : Optimize round 2, 198 better
+SYN-1014 : Optimize round 3
+SYN-1019 : Optimized 0 mux instances.
+SYN-1015 : Optimize round 3, 0 better
+RUN-1002 : start command "read_sdc reaction_timer_board.sdc"
+RUN-1002 : start command "get_ports clk"
+RUN-1002 : start command "create_clock -name clk -period 20.000 -waveform 0.000 10.000 "
+RUN-1102 : create_clock: clock name: clk, type: 0, period: 20000, rise: 0, fall: 10000.
+RUN-1104 : Import SDC file reaction_timer_board.sdc finished, there are 0 nets kept by constraints.
+RUN-1002 : start command "optimize_gate"
+RUN-1001 : Open license file /home/example-user/tools/anlogic/TD_4.6.7_Linux/license/Anlogic.lic
+SYN-2001 : Map 21 IOs to PADs
+SYN-2501 : Processed 0 LOGIC_BUF instances.
+SYN-2571 : Map 1 macro multiplier
+SYN-2571 : Optimize after map_dsp, round 1
+SYN-1032 : 1501/3 useful/useless nets, 1253/0 useful/useless insts
+SYN-2571 : Optimize after map_dsp, round 1, 0 better
+SYN-2501 : Optimize round 1
+SYN-1032 : 1551/4 useful/useless nets, 1321/4 useful/useless insts
+SYN-2501 : Optimize round 1, 35 better
+SYN-2501 : Optimize round 2
+SYN-2501 : Optimize round 2, 0 better
+SYN-2501 : Map 46 macro adder
+SYN-3001 : Mapper mapped 3 instances into 1 LUTs, name keeping = 0%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-3001 : Mapper mapped 15 instances into 1 LUTs, name keeping = 100%.
+SYN-2501 : Inferred 28 ROM instances
+SYN-1032 : 2418/6 useful/useless nets, 2188/0 useful/useless insts
+RUN-1002 : start command "start_timer -prepack"
+TMR-2505 : Start building timing graph for model reaction_timer_board.
+TMR-2506 : Build timing graph completely. Port num: 7, tpin num: 8499, tnet num: 2398, tinst num: 2164, tnode num: 13687, tedge num: 15212.
+TMR-2507 : Eliminate loop in the timing graph, delete 0 tedges.
+TMR-2508 : Levelizing timing graph completed, there are 83 levels in total.
+TMR-2501 : Timing graph initialized successfully.
+TMR-2503 : Start to update net delay, extr mode = 2.
+TMR-2504 : Update delay of 2398 nets completely.
+TMR-2502 : Annotate delay completely, extr mode = 2.
+TMR-3001 : Initiate 1 clocks from SDC.
+TMR-3004 : Start mapping sdc constraints, there are 0 constraints in total.
+TMR-3005 : Start mapping report constraints, there are 0 constraints in total.
+TMR-3003 : Constraints initiated successfully.
+TMR-3501 : Forward propagation: start to calculate arrival time...
+TMR-3502 : Backward propagation: start to calculate required time...
+TMR-3503 : Timing propagation completes.
+SYN-3001 : Running gate level optimization.
+SYN-2581 : Mapping with K=5, #lut = 455 (3.99), #lev = 5 (2.34)
+SYN-2551 : Post LUT mapping optimization.
+SYN-3001 : Logic optimization runtime opt =   0.07 sec, map =   0.00 sec
+SYN-3001 : Mapper mapped 1252 instances into 455 LUTs, name keeping = 79%.
+SYN-3001 : Mapper removed 9 lut buffers
+SYN-1001 : Packing model "reaction_timer_board" ...
+SYN-4010 : Pack lib has 43 rtl pack models with 16 top pack blocks
+SYN-1014 : Optimize round 1
+SYN-1015 : Optimize round 1, 0 better
+SYN-4002 : Packing 399 DFF/LATCH to SEQ ...
+SYN-4009 : Pack 8 carry chain into lslice
+SYN-4007 : Packing 285 adder to BLE ...
+SYN-4008 : Packed 285 adder and 5 SEQ to BLE.
+SYN-4007 : Packing 0 gate4 to BLE ...
+SYN-4008 : Packed 0 gate4 and 0 SEQ to BLE.
+SYN-4012 : Packed 0 FxMUX
+SYN-4007 : Packing 0 MUX to BLE ...
+SYN-4008 : Packed 0 MUX and 0 SEQ to BLE.
+SYN-4007 : Packing 474 LUT to BLE ...
+SYN-4008 : Packed 474 LUT and 305 SEQ to BLE.
+SYN-4003 : Packing 89 remaining SEQ's ...
+SYN-4004 : #0: Packed 0 SEQ (89 nodes)...
+SYN-4004 : #1: Packed 23 SEQ (306 nodes)...
+SYN-4005 : Packed 23 SEQ with LUT/SLICE
+SYN-4006 : 149 single LUT's are left
+SYN-4006 : 66 single SEQ's are left
+SYN-4011 : Packing model "reaction_timer_board" (AL_USER_NORMAL) with 540/762 primitive instances ...
+RUN-1003 : finish command "optimize_gate" in  1.725411s wall, 1.510000s user + 0.040000s system = 1.550000s CPU (89.8%)
+
+RUN-1004 : used memory is 43 MB, reserved memory is 80 MB, peak memory is 80 MB
+RUN-1002 : start command "place"
+RUN-1001 : Open license file /home/example-user/tools/anlogic/TD_4.6.7_Linux/license/Anlogic.lic
+PHY-3001 : Placer runs in 128 thread(s).
+RUN-1002 : start command "legalize_phy_inst"
+SYN-1011 : Flatten model reaction_timer_board
+SYN-4024 : Net "clk_pad" drive clk pins.
+SYN-4025 : Tag rtl::Net clk_pad as clock net
+SYN-4026 : Tagged 1 rtl::Net as clock net
+PHY-1001 : Populate physical database.
+RUN-1001 : There are total 494 instances
+RUN-1001 : 234 mslices, 234 lslices, 21 pads, 0 brams, 2 dsps
+RUN-1001 : There are total 1006 nets
+RUN-1001 : 600 nets have 2 pins
+RUN-1001 : 316 nets have [3 - 5] pins
+RUN-1001 : 44 nets have [6 - 10] pins
+RUN-1001 : 23 nets have [11 - 20] pins
+RUN-1001 : 19 nets have [21 - 99] pins
+RUN-1001 : 4 nets have 100+ pins
+PHY-3001 : Initial placement ...
+PHY-3001 : design contains 492 instances, 468 slices, 30 macros(196 instances)
+PHY-3001 : Start timing update ...
+RUN-1002 : start command "start_timer"
+TMR-2505 : Start building timing graph for model reaction_timer_board.
+TMR-2506 : Build timing graph completely. Port num: 7, tpin num: 4179, tnet num: 1004, tinst num: 492, tnode num: 5121, tedge num: 7180.
+TMR-2507 : Eliminate loop in the timing graph, delete 0 tedges.
+TMR-2508 : Levelizing timing graph completed, there are 41 levels in total.
+TMR-2501 : Timing graph initialized successfully.
+TMR-2503 : Start to update net delay, extr mode = 2.
+TMR-2504 : Update delay of 1004 nets completely.
+TMR-2502 : Annotate delay completely, extr mode = 2.
+TMR-3001 : Initiate 1 clocks from SDC.
+TMR-3004 : Start mapping sdc constraints, there are 0 constraints in total.
+TMR-3005 : Start mapping report constraints, there are 0 constraints in total.
+TMR-3003 : Constraints initiated successfully.
+TMR-3501 : Forward propagation: start to calculate arrival time...
+TMR-3502 : Backward propagation: start to calculate required time...
+TMR-3503 : Timing propagation completes.
+PHY-3001 : End timing update;  0.060006s wall, 0.060000s user + 0.000000s system = 0.060000s CPU (100.0%)
+
+PHY-3001 : Global placement ...
+PHY-3001 : Initial: Len = 303359
+PHY-3001 : Run with size of 4
+PHY-3001 : Cell area utilization is 4%, beta_incr = 0.971347
+PHY-3001 : :::0::: Try harder cell spreading with beta_ = 0
+PHY-3002 : Step(1): len = 218254, overlap = 4.5
+PHY-3002 : Step(2): len = 173415, overlap = 4.5
+PHY-3002 : Step(3): len = 152822, overlap = 4.5
+PHY-3002 : Step(4): len = 137979, overlap = 4.5
+PHY-3002 : Step(5): len = 125449, overlap = 4.5
+PHY-3002 : Step(6): len = 113775, overlap = 2.25
+PHY-3002 : Step(7): len = 104702, overlap = 2.25
+PHY-3002 : Step(8): len = 96403.5, overlap = 0
+PHY-3002 : Step(9): len = 88599.2, overlap = 0
+PHY-3002 : Step(10): len = 81430, overlap = 0
+PHY-3002 : Step(11): len = 75196.8, overlap = 2.25
+PHY-3002 : Step(12): len = 69615.8, overlap = 4.5
+PHY-3002 : Step(13): len = 63948.6, overlap = 4.5
+PHY-3002 : Step(14): len = 57530.6, overlap = 4.5
+PHY-3002 : Step(15): len = 52215.8, overlap = 4.5
+PHY-3002 : Step(16): len = 47638, overlap = 4.5
+PHY-3002 : Step(17): len = 42533.8, overlap = 6.5
+PHY-3002 : Step(18): len = 37628.3, overlap = 13.75
+PHY-3002 : Step(19): len = 35540.2, overlap = 14.5
+PHY-3002 : Step(20): len = 29511.6, overlap = 17
+PHY-3002 : Step(21): len = 27930.4, overlap = 16.75
+PHY-3002 : Step(22): len = 25728, overlap = 18
+PHY-3001 : :::1::: Try harder cell spreading with beta_ = 7.11323e-05
+PHY-3002 : Step(23): len = 25528.9, overlap = 17.5
+PHY-3002 : Step(24): len = 26279.2, overlap = 5.5
+PHY-3002 : Step(25): len = 25460.1, overlap = 6
+PHY-3002 : Step(26): len = 24833.5, overlap = 6.75
+PHY-3002 : Step(27): len = 24358.8, overlap = 3.75
+PHY-3002 : Step(28): len = 23951.8, overlap = 0.5
+PHY-3002 : Step(29): len = 23428, overlap = 2.75
+PHY-3002 : Step(30): len = 22379.1, overlap = 7.25
+PHY-3002 : Step(31): len = 21896.7, overlap = 7.75
+PHY-3002 : Step(32): len = 21779, overlap = 8.5
+PHY-3002 : Step(33): len = 21358.3, overlap = 6.5
+PHY-3002 : Step(34): len = 21146.1, overlap = 9.25
+PHY-3002 : Step(35): len = 20606.5, overlap = 9.75
+PHY-3002 : Step(36): len = 20267.1, overlap = 10.75
+PHY-3002 : Step(37): len = 19914.6, overlap = 11.75
+PHY-3002 : Step(38): len = 19592.6, overlap = 12
+PHY-3002 : Step(39): len = 19333.7, overlap = 11.25
+PHY-3002 : Step(40): len = 18882.8, overlap = 14.25
+PHY-3002 : Step(41): len = 18592.5, overlap = 14
+PHY-3002 : Step(42): len = 18550.7, overlap = 14.75
+PHY-3001 : :::2::: Try harder cell spreading with beta_ = 0.000142265
+PHY-3002 : Step(43): len = 18671.4, overlap = 13
+PHY-3002 : Step(44): len = 18764.7, overlap = 13
+PHY-3001 : :::3::: Try harder cell spreading with beta_ = 0.00024274
+PHY-3002 : Step(45): len = 18779.5, overlap = 15.25
+PHY-3002 : Step(46): len = 18870.8, overlap = 15.5
+PHY-3001 : Legalization ...
+PHY-3001 : End legalization;  0.017422s wall, 0.010000s user + 0.020000s system = 0.030000s CPU (172.2%)
+
+PHY-3001 : Run with size of 4
+PHY-3001 : Cell area utilization is 6%, beta_incr = 0.971347
+PHY-3001 : :::0::: Try harder cell spreading with beta_ = 1.96651e-06
+PHY-3002 : Step(47): len = 19907.1, overlap = 20.75
+PHY-3002 : Step(48): len = 19888.9, overlap = 21
+PHY-3002 : Step(49): len = 19577.9, overlap = 21.75
+PHY-3002 : Step(50): len = 19500.4, overlap = 22
+PHY-3002 : Step(51): len = 19293.8, overlap = 22.75
+PHY-3001 : :::1::: Try harder cell spreading with beta_ = 3.93303e-06
+PHY-3002 : Step(52): len = 19000.7, overlap = 23.5
+PHY-3002 : Step(53): len = 18969.7, overlap = 24.25
+PHY-3002 : Step(54): len = 18950.3, overlap = 24.25
+PHY-3001 : :::2::: Try harder cell spreading with beta_ = 7.86606e-06
+PHY-3002 : Step(55): len = 18838.2, overlap = 24.5
+PHY-3002 : Step(56): len = 18841.3, overlap = 24.5
+PHY-3001 : Run with size of 2
+PHY-3001 : Cell area utilization is 6%, beta_incr = 0.971347
+PHY-3001 : :::0::: Try harder cell spreading with beta_ = 6.92203e-06
+PHY-3002 : Step(57): len = 18825.7, overlap = 37.5
+PHY-3002 : Step(58): len = 18825.7, overlap = 37.5
+PHY-3001 : :::1::: Try harder cell spreading with beta_ = 1.38441e-05
+PHY-3002 : Step(59): len = 19247.8, overlap = 35.5
+PHY-3002 : Step(60): len = 19464.7, overlap = 35
+PHY-3002 : Step(61): len = 19346.8, overlap = 34.5
+PHY-3002 : Step(62): len = 19851.6, overlap = 33
+PHY-3002 : Step(63): len = 20012.7, overlap = 32.25
+PHY-3001 : :::2::: Try harder cell spreading with beta_ = 2.76881e-05
+PHY-3002 : Step(64): len = 19954.8, overlap = 29.75
+PHY-3002 : Step(65): len = 20495.3, overlap = 27.25
+PHY-3002 : Step(66): len = 21454.3, overlap = 26
+PHY-3001 : :::3::: Try harder cell spreading with beta_ = 5.53762e-05
+PHY-3002 : Step(67): len = 21386.9, overlap = 26.5
+PHY-3002 : Step(68): len = 22570.9, overlap = 24.25
+PHY-3002 : Step(69): len = 22963.5, overlap = 21.75
+PHY-3002 : Step(70): len = 22754.3, overlap = 22.25
+PHY-3002 : Step(71): len = 22752.8, overlap = 22.5
+PHY-3002 : Step(72): len = 22532.6, overlap = 23.5
+PHY-3001 : :::4::: Try harder cell spreading with beta_ = 0.000110752
+PHY-3002 : Step(73): len = 22835.6, overlap = 21.25
+PHY-3002 : Step(74): len = 23375.9, overlap = 19.75
+PHY-3002 : Step(75): len = 23622.9, overlap = 18.5
+PHY-3002 : Step(76): len = 23660.9, overlap = 19.75
+PHY-3002 : Step(77): len = 23657, overlap = 18.25
+PHY-3002 : Step(78): len = 23486.9, overlap = 17.75
+PHY-3001 : :::5::: Try harder cell spreading with beta_ = 0.000221505
+PHY-3002 : Step(79): len = 24008, overlap = 18
+PHY-3002 : Step(80): len = 24196.1, overlap = 18
+PHY-3002 : Step(81): len = 24247.9, overlap = 17
+PHY-3001 : Legalization ...
+PHY-3001 : End legalization;  0.602166s wall, 0.100000s user + 0.760000s system = 0.860000s CPU (142.8%)
+
+PHY-3001 : Run with size of 2
+PHY-3001 : Cell area utilization is 6%, beta_incr = 0.971347
+PHY-3001 : :::0::: Try harder cell spreading with beta_ = 0.000598153
+PHY-3002 : Step(82): len = 31036, overlap = 4
+PHY-3002 : Step(83): len = 29261.1, overlap = 8
+PHY-3002 : Step(84): len = 28040.5, overlap = 10
+PHY-3002 : Step(85): len = 27287.4, overlap = 13.75
+PHY-3002 : Step(86): len = 26894.1, overlap = 14.5
+PHY-3002 : Step(87): len = 26667.5, overlap = 16.5
+PHY-3001 : :::1::: Try harder cell spreading with beta_ = 0.00119631
+PHY-3002 : Step(88): len = 26818.4, overlap = 15.75
+PHY-3002 : Step(89): len = 26908.5, overlap = 16
+PHY-3002 : Step(90): len = 26996.1, overlap = 16.5
+PHY-3001 : :::2::: Try harder cell spreading with beta_ = 0.00239261
+PHY-3002 : Step(91): len = 27097.2, overlap = 17
+PHY-3002 : Step(92): len = 27154.3, overlap = 17
+PHY-3001 : Legalization ...
+PHY-3001 : End legalization;  0.167335s wall, 0.040000s user + 0.190000s system = 0.230000s CPU (137.4%)
+
+PHY-3001 : Legalized: Len = 30543.4, Over = 0
+PHY-3001 : Final: Len = 30543.4, Over = 0
+PHY-3001 : Improving timing with driver duplication.
+RUN-1001 : Generating global routing grids ...
+PHY-1001 : Generate routing nets ...
+PHY-1001 : Global iterations in 128 thread ...
+PHY-1002 : len = 60176, over cnt = 16(0%), over = 17, worst = 2
+PHY-1002 : len = 60312, over cnt = 5(0%), over = 5, worst = 1
+PHY-1002 : len = 60280, over cnt = 0(0%), over = 0, worst = 0
+PHY-1001 : End global iterations;  0.125246s wall, 0.130000s user + 0.050000s system = 0.180000s CPU (143.7%)
+
+RUN-1002 : start command "place -eco"
+RUN-1001 : Open license file /home/example-user/tools/anlogic/TD_4.6.7_Linux/license/Anlogic.lic
+PHY-3001 : Placer runs in 128 thread(s).
+PHY-1001 : Populate physical database.
+PHY-3001 : Initial placement ...
+PHY-3001 : eco special cells: 1 has valid locations, 0 needs to be replaced
+PHY-3001 : eco pad cells: 21 has valid locations, 0 needs to be replaced
+PHY-3001 : eco cells: 468 has valid locations, 17 needs to be replaced
+PHY-3001 : design contains 507 instances, 483 slices, 30 macros(196 instances)
+PHY-3001 : Start timing update ...
+RUN-1002 : start command "start_timer"
+TMR-2505 : Start building timing graph for model reaction_timer_board.
+TMR-2506 : Build timing graph completely. Port num: 7, tpin num: 4266, tnet num: 1019, tinst num: 507, tnode num: 5256, tedge num: 7306.
+TMR-2507 : Eliminate loop in the timing graph, delete 0 tedges.
+TMR-2508 : Levelizing timing graph completed, there are 41 levels in total.
+TMR-2501 : Timing graph initialized successfully.
+TMR-2503 : Start to update net delay, extr mode = 2.
+TMR-2504 : Update delay of 1019 nets completely.
+TMR-2502 : Annotate delay completely, extr mode = 2.
+TMR-3001 : Initiate 1 clocks from SDC.
+TMR-3004 : Start mapping sdc constraints, there are 0 constraints in total.
+TMR-3005 : Start mapping report constraints, there are 0 constraints in total.
+TMR-3003 : Constraints initiated successfully.
+TMR-3501 : Forward propagation: start to calculate arrival time...
+TMR-3502 : Backward propagation: start to calculate required time...
+TMR-3503 : Timing propagation completes.
+PHY-3001 : End timing update;  0.078135s wall, 0.080000s user + 0.000000s system = 0.080000s CPU (102.4%)
+
+PHY-3001 : Global placement ...
+PHY-3001 : Initial: Len = 31968.4
+PHY-3001 : Run with size of 4
+PHY-3001 : Cell area utilization is 4%, beta_incr = 0.970429
+PHY-3001 : :::0::: Try harder cell spreading with beta_ = 0
+PHY-3002 : Step(93): len = 31978.9, overlap = 0
+PHY-3002 : Step(94): len = 31978.9, overlap = 0
+PHY-3001 : Legalization ...
+PHY-3001 : End legalization;  0.003003s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%)
+
+PHY-3001 : Run with size of 4
+PHY-3001 : Cell area utilization is 6%, beta_incr = 0.970429
+PHY-3001 : :::0::: Try harder cell spreading with beta_ = 0.000852989
+PHY-3002 : Step(95): len = 31925.7, overlap = 0
+PHY-3002 : Step(96): len = 31925.7, overlap = 0
+PHY-3001 : Run with size of 2
+PHY-3001 : Cell area utilization is 6%, beta_incr = 0.970429
+PHY-3001 : :::0::: Try harder cell spreading with beta_ = 0.000149765
+PHY-3002 : Step(97): len = 31942.3, overlap = 1.25
+PHY-3002 : Step(98): len = 31942.3, overlap = 1.25
+PHY-3001 : Legalization ...
+PHY-3001 : End legalization;  0.139328s wall, 0.020000s user + 0.170000s system = 0.190000s CPU (136.4%)
+
+PHY-3001 : Run with size of 2
+PHY-3001 : Cell area utilization is 6%, beta_incr = 0.970429
+PHY-3001 : :::0::: Try harder cell spreading with beta_ = 0.00112255
+PHY-3002 : Step(99): len = 31973.1, overlap = 0.75
+PHY-3002 : Step(100): len = 31984.5, overlap = 1
+PHY-3002 : Step(101): len = 32026.5, overlap = 0.75
+PHY-3001 : Legalization ...
+PHY-3001 : End legalization;  0.058246s wall, 0.020000s user + 0.070000s system = 0.090000s CPU (154.5%)
+
+PHY-3001 : Legalized: Len = 32173.4, Over = 0
+PHY-3001 : Final: Len = 32173.4, Over = 0
+RUN-1003 : finish command "place -eco" in  2.055311s wall, 1.010000s user + 1.890000s system = 2.900000s CPU (141.1%)
+
+RUN-1004 : used memory is 185 MB, reserved memory is 205 MB, peak memory is 205 MB
+RUN-1001 : Eco place succeeded
+RUN-1003 : finish command "place" in  18.037388s wall, 10.190000s user + 17.300000s system = 27.490000s CPU (152.4%)
+
+RUN-1004 : used memory is 56 MB, reserved memory is 205 MB, peak memory is 205 MB
+RUN-1002 : start command "route"
+RUN-1001 : Open license file /home/example-user/tools/anlogic/TD_4.6.7_Linux/license/Anlogic.lic
+PHY-1001 : Pin misalignment score is improved from 594 to 496
+PHY-1001 : Pin misalignment score is improved from 496 to 492
+PHY-1001 : Pin misalignment score is improved from 492 to 492
+PHY-1001 : Route runs in 128 thread(s)
+RUN-1001 : There are total 509 instances
+RUN-1001 : 246 mslices, 237 lslices, 21 pads, 0 brams, 2 dsps
+RUN-1001 : There are total 1021 nets
+RUN-1001 : 592 nets have 2 pins
+RUN-1001 : 323 nets have [3 - 5] pins
+RUN-1001 : 44 nets have [6 - 10] pins
+RUN-1001 : 34 nets have [11 - 20] pins
+RUN-1001 : 25 nets have [21 - 99] pins
+RUN-1001 : 3 nets have 100+ pins
+PHY-1001 : Start global routing ...
+RUN-1001 : Generating global routing grids ...
+PHY-1001 : Generate routing nets ...
+PHY-1001 : Global iterations in 128 thread ...
+PHY-1002 : len = 49008, over cnt = 18(0%), over = 19, worst = 2
+PHY-1002 : len = 49152, over cnt = 7(0%), over = 7, worst = 1
+PHY-1002 : len = 49176, over cnt = 1(0%), over = 1, worst = 1
+PHY-1002 : len = 49176, over cnt = 0(0%), over = 0, worst = 0
+PHY-1001 : End global iterations;  0.179249s wall, 0.190000s user + 0.060000s system = 0.250000s CPU (139.5%)
+
+PHY-1001 : Pin swapping for better routability
+PHY-1001 : Pin local connectivity score is improved from 328 to 29
+PHY-1001 : End pin swap;  0.025363s wall, 0.020000s user + 0.000000s system = 0.020000s CPU (78.9%)
+
+PHY-1001 : End global routing;  0.538357s wall, 0.550000s user + 0.060000s system = 0.610000s CPU (113.3%)
+
+PHY-1001 : Start detail routing ...
+PHY-1001 : Generate detailed routing grids ...
+PHY-1001 : Generate nets ...
+PHY-1001 : net clk_pad will be routed on clock mesh
+PHY-1001 : Detail Route ...
+PHY-1001 : ===== Detail Route Phase 1 =====
+PHY-1001 : Routed 0% nets.
+PHY-1002 : len = 21896, over cnt = 0(0%), over = 0, worst = 0
+PHY-1001 : End Routed; 0.019606s wall, 0.010000s user + 0.010000s system = 0.020000s CPU (102.0%)
+
+PHY-1001 : ===== Detail Route Phase 2 =====
+PHY-1001 : Routed 0% nets.
+PHY-1002 : len = 21896, over cnt = 0(0%), over = 0, worst = 0
+PHY-1001 : End Routed; 0.000064s wall, 0.000000s user + 0.000000s system = 0.000000s CPU (n/a%)
+
+PHY-1001 : ===== Detail Route Phase 3 =====
+PHY-1001 : Routed 33% nets.
+PHY-1001 : Routed 42% nets.
+PHY-1001 : Routed 51% nets.
+PHY-1001 : Routed 63% nets.
+PHY-1001 : Routed 81% nets.
+PHY-1002 : len = 93432, over cnt = 16(0%), over = 16, worst = 1
+PHY-1001 : End Routed; 0.710419s wall, 0.930000s user + 0.510000s system = 1.440000s CPU (202.7%)
+
+PHY-1001 : ===== DR Iter 1 =====
+PHY-1002 : len = 93288, over cnt = 2(0%), over = 2, worst = 1
+PHY-1001 : End DR Iter 1; 0.022826s wall, 0.020000s user + 0.010000s system = 0.030000s CPU (131.4%)
+
+PHY-1001 : ===== DR Iter 2 =====
+PHY-1002 : len = 93320, over cnt = 0(0%), over = 0, worst = 0
+PHY-1003 : Routed, final wirelength = 93320
+PHY-1001 : End DR Iter 2; 0.014511s wall, 0.020000s user + 0.010000s system = 0.030000s CPU (206.7%)
+
+PHY-1001 : 0 feed throughs used by 0 nets
+PHY-1001 : Generate detailed routing grids ...
+PHY-1001 : Generate nets ...
+PHY-1001 : net clk_pad will be routed on clock mesh
+PHY-1001 : eco open net = 0
+PHY-1001 : End detail routing;  6.966938s wall, 5.800000s user + 1.890000s system = 7.690000s CPU (110.4%)
+
+PHY-1001 : Routing violations:
+PHY-1001 : End of Routing Violations.
+RUN-1003 : finish command "route" in  7.659542s wall, 6.500000s user + 1.950000s system = 8.450000s CPU (110.3%)
+
+RUN-1004 : used memory is 149 MB, reserved memory is 4486 MB, peak memory is 4486 MB
+RUN-1002 : start command "report_clock_summary -file reaction_timer_board_clock_summary.rpt"
+RUN-1002 : start command "report_timing -file reaction_timer_board_timing.rpt"
+TMR-2503 : Start to update net delay, extr mode = 6.
+PHY-1001 : Generate detailed routing grids ...
+PHY-1001 : Generate nets ...
+PHY-1001 : net clk_pad will be routed on clock mesh
+PHY-1001 : eco open net = 0
+TMR-2504 : Update delay of 1019 nets completely.
+TMR-2502 : Annotate delay completely, extr mode = 6.
+TMR-3005 : Start mapping report constraints, there are 0 constraints in total.
+TMR-3501 : Forward propagation: start to calculate arrival time...
+TMR-3502 : Backward propagation: start to calculate required time...
+TMR-3503 : Timing propagation completes.
+TMR-3506 : Start to generate timing report.
+TMR-1502 : clock_nets size = 1, clk_num = 1.
+TMR-3508 : Export timing summary.
+TMR-3507 : Timing report generated successfully in reaction_timer_board_timing.rpt, timing summary in reaction_timer_board_timing.tsm.
+RUN-1002 : start command "get_timing_stat -wns -whs"
+TIMING WNS/WHS: 14.652000427246094
+RUN-1002 : start command "bitgen -bit reaction_timer_board.bit"
+BIT-1003 : Start to generate bitstream. 
+BIT-1002 : Init instances with 128 threads.
+BIT-1002 : Init instances completely, inst num: 509
+BIT-1002 : Init pips with 128 threads.
+BIT-1002 : Init pips completely, net num: 1021, pip num: 8565
+BIT-1003 : Multithreading accelaration with 128 threads.
+Generated bits for 10% instances... Generated bits for 20% instances... Generated bits for 30% instances... Generated bits for 40% instances... Generated bits for 50% instances... Generated bits for 60% instances... Generated bits for 70% instances... Generated bits for 80% instances... Generated bits for 90% instances... Generated bits for 100% instances... 
+BIT-1003 : Generate bitstream completely, there are 619 valid insts, and 26710 bits set as '1'.
+BIT-1004 : PLL setting string = 0000
+BIT-1004 : Generate bits file reaction_timer_board.bit.
+FLOW FINISHED: reaction_timer_board.bit

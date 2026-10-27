@@ -1,0 +1,20 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const context=vm.createContext({console});
+if(fs.existsSync('workbench/static/workspace-layout.js'))
+  vm.runInContext(fs.readFileSync('workbench/static/workspace-layout.js','utf8'),context);
+assert.equal(typeof context.normalizeWorkspaceLayout,'function');
+const normalized=value=>JSON.parse(JSON.stringify(context.normalizeWorkspaceLayout(value)));
+const defaults=normalized(null);
+assert.equal(defaults.sidebar,218);
+assert.equal(defaults.split,0.535);
+assert.equal(defaults.sidebarClosed,false);
+assert.equal(defaults.inspectorClosed,false);
+assert.deepEqual(normalized({sidebar:'invalid',split:'bad',sidebarClosed:'false'}),defaults);
+assert.equal(normalized({sidebar:-900,split:9}).sidebar,170);
+assert.equal(normalized({sidebar:-900,split:9}).split,0.8);
+assert.equal(normalized({sidebar:10000,split:0}).sidebar,420);
+assert.equal(normalized({sidebarClosed:true,inspectorClosed:true}).inspectorClosed,true);
+const fitted=context.fitWorkspaceLayout({sidebar:420,split:0.9,sidebarClosed:false,inspectorClosed:false},1000);
+assert.ok(fitted.sidebar<=360);
+assert.ok(fitted.split<0.7);
+console.log('Layout defaults, bounded widths, invalid persisted state and viewport constraints: passed');

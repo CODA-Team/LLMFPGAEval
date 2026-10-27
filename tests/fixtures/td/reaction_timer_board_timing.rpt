@@ -1,0 +1,743 @@
+=========================================================================================================
+Auto created by the td v4.6.64949
+@Copy Right: Shanghai Anlogic Infotech, 2011 - 2022.
+Fri Oct 23 13:04:17 2026
+=========================================================================================================
+
+
+Top Model:                reaction_timer_board                                            
+Device:                   eagle_s20                                                       
+Timing Constraint File:   reaction_timer_board.sdc                                        
+STA Level:                Detail                                                          
+Process parameter::       TT  1.10v  85C                                                  
+
+=========================================================================================================
+Timing constraint:        clock: clk                                                      
+Clock = clk, period 20ns, rising at 0ns, falling at 10ns
+
+1438 endpoints analyzed totally, and 26662 paths analyzed
+0 errors detected : 0 setup errors (TNS = 0.000), 0 hold errors (TNS = 0.000)
+Minimum period is 5.348ns
+---------------------------------------------------------------------------------------------------------
+
+Paths for end point u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6 (56 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (setup check)      14.652 ns                                                       
+ StartPoint:              u_dut/u_reaction_fsm/reg2_b1|u_dut/u_reaction_fsm/reg2_b27.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6.c[1] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_reaction_fsm/reg2_b1|u_dut/u_reaction_fsm/reg2_b27.clk clock                   3.580
+ launch clock edge                                           clock                   0.000
+ u_dut/u_reaction_fsm/reg2_b1|u_dut/u_reaction_fsm/reg2_b27.q[1] cell                    0.146
+ u_dut/u_reaction_fsm/lt0_2|u_dut/u_reaction_fsm/lt0_1.b[0]  net (fanout = 3)        0.640
+ u_dut/u_reaction_fsm/lt0_2|u_dut/u_reaction_fsm/lt0_1.fco   cell                    0.627
+ u_dut/u_reaction_fsm/lt0_4|u_dut/u_reaction_fsm/lt0_3.fci   net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_4|u_dut/u_reaction_fsm/lt0_3.fco   cell                    0.073
+ u_dut/u_reaction_fsm/lt0_6|u_dut/u_reaction_fsm/lt0_5.fci   net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_6|u_dut/u_reaction_fsm/lt0_5.fco   cell                    0.073
+ u_dut/u_reaction_fsm/lt0_8|u_dut/u_reaction_fsm/lt0_7.fci   net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_8|u_dut/u_reaction_fsm/lt0_7.fco   cell                    0.073
+ u_dut/u_reaction_fsm/lt0_10|u_dut/u_reaction_fsm/lt0_9.fci  net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_10|u_dut/u_reaction_fsm/lt0_9.fco  cell                    0.073
+ u_dut/u_reaction_fsm/lt0_12|u_dut/u_reaction_fsm/lt0_11.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_12|u_dut/u_reaction_fsm/lt0_11.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_14|u_dut/u_reaction_fsm/lt0_13.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_14|u_dut/u_reaction_fsm/lt0_13.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_16|u_dut/u_reaction_fsm/lt0_15.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_16|u_dut/u_reaction_fsm/lt0_15.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_18|u_dut/u_reaction_fsm/lt0_17.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_18|u_dut/u_reaction_fsm/lt0_17.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_20|u_dut/u_reaction_fsm/lt0_19.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_20|u_dut/u_reaction_fsm/lt0_19.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_22|u_dut/u_reaction_fsm/lt0_21.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_22|u_dut/u_reaction_fsm/lt0_21.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_24|u_dut/u_reaction_fsm/lt0_23.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_24|u_dut/u_reaction_fsm/lt0_23.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_26|u_dut/u_reaction_fsm/lt0_25.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_26|u_dut/u_reaction_fsm/lt0_25.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_28|u_dut/u_reaction_fsm/lt0_27.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_28|u_dut/u_reaction_fsm/lt0_27.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_30|u_dut/u_reaction_fsm/lt0_29.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_30|u_dut/u_reaction_fsm/lt0_29.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_cout|u_dut/u_reaction_fsm/lt0_31.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_cout|u_dut/u_reaction_fsm/lt0_31.f[1] cell                    0.355
+ _al_u399|u_dut/u_reaction_fsm/reg3_b2.e[1]                  net (fanout = 2)        0.673
+ _al_u399|u_dut/u_reaction_fsm/reg3_b2.f[1]                  cell                    0.282
+ u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6.c[1] net (fanout = 32)       0.893
+ u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6  path2reg1               0.466
+ Arrival time                                                                        8.684 (4 lvl)
+                                                                                          (75% logic, 25% net)
+
+ u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6.clk                         3.248
+ capture clock edge                                                                 20.000
+ cell setup                                                                         -0.116
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.204
+ Required time                                                                      23.336
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           14.652 ns
+
+---------------------------------------------------------------------------------------------------------
+
+ Slack (setup check)      14.778 ns                                                       
+ StartPoint:              u_dut/u_reaction_fsm/reg2_b0|u_dut/u_reaction_fsm/reg2_b9.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6.c[1] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_reaction_fsm/reg2_b0|u_dut/u_reaction_fsm/reg2_b9.clk clock                   3.580
+ launch clock edge                                           clock                   0.000
+ u_dut/u_reaction_fsm/reg2_b0|u_dut/u_reaction_fsm/reg2_b9.q[1] cell                    0.146
+ u_dut/u_reaction_fsm/lt0_0|u_dut/u_reaction_fsm/lt0_cin.b[1] net (fanout = 3)        0.636
+ u_dut/u_reaction_fsm/lt0_0|u_dut/u_reaction_fsm/lt0_cin.fco cell                    0.539
+ u_dut/u_reaction_fsm/lt0_2|u_dut/u_reaction_fsm/lt0_1.fci   net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_2|u_dut/u_reaction_fsm/lt0_1.fco   cell                    0.073
+ u_dut/u_reaction_fsm/lt0_4|u_dut/u_reaction_fsm/lt0_3.fci   net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_4|u_dut/u_reaction_fsm/lt0_3.fco   cell                    0.073
+ u_dut/u_reaction_fsm/lt0_6|u_dut/u_reaction_fsm/lt0_5.fci   net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_6|u_dut/u_reaction_fsm/lt0_5.fco   cell                    0.073
+ u_dut/u_reaction_fsm/lt0_8|u_dut/u_reaction_fsm/lt0_7.fci   net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_8|u_dut/u_reaction_fsm/lt0_7.fco   cell                    0.073
+ u_dut/u_reaction_fsm/lt0_10|u_dut/u_reaction_fsm/lt0_9.fci  net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_10|u_dut/u_reaction_fsm/lt0_9.fco  cell                    0.073
+ u_dut/u_reaction_fsm/lt0_12|u_dut/u_reaction_fsm/lt0_11.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_12|u_dut/u_reaction_fsm/lt0_11.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_14|u_dut/u_reaction_fsm/lt0_13.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_14|u_dut/u_reaction_fsm/lt0_13.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_16|u_dut/u_reaction_fsm/lt0_15.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_16|u_dut/u_reaction_fsm/lt0_15.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_18|u_dut/u_reaction_fsm/lt0_17.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_18|u_dut/u_reaction_fsm/lt0_17.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_20|u_dut/u_reaction_fsm/lt0_19.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_20|u_dut/u_reaction_fsm/lt0_19.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_22|u_dut/u_reaction_fsm/lt0_21.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_22|u_dut/u_reaction_fsm/lt0_21.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_24|u_dut/u_reaction_fsm/lt0_23.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_24|u_dut/u_reaction_fsm/lt0_23.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_26|u_dut/u_reaction_fsm/lt0_25.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_26|u_dut/u_reaction_fsm/lt0_25.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_28|u_dut/u_reaction_fsm/lt0_27.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_28|u_dut/u_reaction_fsm/lt0_27.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_30|u_dut/u_reaction_fsm/lt0_29.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_30|u_dut/u_reaction_fsm/lt0_29.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_cout|u_dut/u_reaction_fsm/lt0_31.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_cout|u_dut/u_reaction_fsm/lt0_31.f[1] cell                    0.355
+ _al_u399|u_dut/u_reaction_fsm/reg3_b2.e[1]                  net (fanout = 2)        0.673
+ _al_u399|u_dut/u_reaction_fsm/reg3_b2.f[1]                  cell                    0.282
+ u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6.c[1] net (fanout = 32)       0.893
+ u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6  path2reg1               0.466
+ Arrival time                                                                        8.665 (4 lvl)
+                                                                                          (75% logic, 25% net)
+
+ u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6.clk                         3.248
+ capture clock edge                                                                 20.000
+ cell setup                                                                         -0.116
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.311
+ Required time                                                                      23.443
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           14.778 ns
+
+---------------------------------------------------------------------------------------------------------
+
+ Slack (setup check)      14.849 ns                                                       
+ StartPoint:              u_dut/u_reaction_fsm/reg2_b17|u_dut/u_reaction_fsm/reg2_b3.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6.c[1] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_reaction_fsm/reg2_b17|u_dut/u_reaction_fsm/reg2_b3.clk clock                   3.580
+ launch clock edge                                           clock                   0.000
+ u_dut/u_reaction_fsm/reg2_b17|u_dut/u_reaction_fsm/reg2_b3.q[0] cell                    0.146
+ u_dut/u_reaction_fsm/lt0_4|u_dut/u_reaction_fsm/lt0_3.b[0]  net (fanout = 3)        0.623
+ u_dut/u_reaction_fsm/lt0_4|u_dut/u_reaction_fsm/lt0_3.fco   cell                    0.627
+ u_dut/u_reaction_fsm/lt0_6|u_dut/u_reaction_fsm/lt0_5.fci   net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_6|u_dut/u_reaction_fsm/lt0_5.fco   cell                    0.073
+ u_dut/u_reaction_fsm/lt0_8|u_dut/u_reaction_fsm/lt0_7.fci   net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_8|u_dut/u_reaction_fsm/lt0_7.fco   cell                    0.073
+ u_dut/u_reaction_fsm/lt0_10|u_dut/u_reaction_fsm/lt0_9.fci  net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_10|u_dut/u_reaction_fsm/lt0_9.fco  cell                    0.073
+ u_dut/u_reaction_fsm/lt0_12|u_dut/u_reaction_fsm/lt0_11.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_12|u_dut/u_reaction_fsm/lt0_11.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_14|u_dut/u_reaction_fsm/lt0_13.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_14|u_dut/u_reaction_fsm/lt0_13.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_16|u_dut/u_reaction_fsm/lt0_15.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_16|u_dut/u_reaction_fsm/lt0_15.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_18|u_dut/u_reaction_fsm/lt0_17.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_18|u_dut/u_reaction_fsm/lt0_17.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_20|u_dut/u_reaction_fsm/lt0_19.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_20|u_dut/u_reaction_fsm/lt0_19.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_22|u_dut/u_reaction_fsm/lt0_21.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_22|u_dut/u_reaction_fsm/lt0_21.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_24|u_dut/u_reaction_fsm/lt0_23.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_24|u_dut/u_reaction_fsm/lt0_23.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_26|u_dut/u_reaction_fsm/lt0_25.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_26|u_dut/u_reaction_fsm/lt0_25.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_28|u_dut/u_reaction_fsm/lt0_27.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_28|u_dut/u_reaction_fsm/lt0_27.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_30|u_dut/u_reaction_fsm/lt0_29.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_30|u_dut/u_reaction_fsm/lt0_29.fco cell                    0.073
+ u_dut/u_reaction_fsm/lt0_cout|u_dut/u_reaction_fsm/lt0_31.fci net (fanout = 1)        0.000
+ u_dut/u_reaction_fsm/lt0_cout|u_dut/u_reaction_fsm/lt0_31.f[1] cell                    0.355
+ _al_u399|u_dut/u_reaction_fsm/reg3_b2.e[1]                  net (fanout = 2)        0.673
+ _al_u399|u_dut/u_reaction_fsm/reg3_b2.f[1]                  cell                    0.282
+ u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6.c[1] net (fanout = 32)       0.893
+ u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6  path2reg1               0.466
+ Arrival time                                                                        8.594 (4 lvl)
+                                                                                          (75% logic, 25% net)
+
+ u_dut/u_reaction_fsm/reg2_b12|u_dut/u_reaction_fsm/reg2_b6.clk                         3.248
+ capture clock edge                                                                 20.000
+ cell setup                                                                         -0.116
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.311
+ Required time                                                                      23.443
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           14.849 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Paths for end point u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9 (44 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (setup check)      14.674 ns                                                       
+ StartPoint:              u_dut/u_ms_counter/reg1_b13|u_dut/u_ms_counter/reg1_b5.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9.d[0] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_ms_counter/reg1_b13|u_dut/u_ms_counter/reg1_b5.clk  clock                   3.580
+ launch clock edge                                           clock                   0.000
+ u_dut/u_ms_counter/reg1_b13|u_dut/u_ms_counter/reg1_b5.q[0] cell                    0.146
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.b[0]      net (fanout = 3)        0.765
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fco       cell                    0.627
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fci      net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fco      cell                    0.073
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.fci   net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.f[1]  cell                    0.355
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.b[1]                  net (fanout = 17)       1.128
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.f[1]                  cell                    0.333
+ u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9.d[0] net (fanout = 14)       0.806
+ u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9      path2reg0               0.549
+ Arrival time                                                                        8.581 (4 lvl)
+                                                                                          (69% logic, 31% net)
+
+ u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9.clk                          3.248
+ capture clock edge                                                                 20.000
+ cell setup                                                                         -0.116
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.123
+ Required time                                                                      23.255
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           14.674 ns
+
+---------------------------------------------------------------------------------------------------------
+
+ Slack (setup check)      14.882 ns                                                       
+ StartPoint:              u_dut/u_ms_counter/reg1_b1|u_dut/u_ms_counter/reg1_b2.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9.d[0] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_ms_counter/reg1_b1|u_dut/u_ms_counter/reg1_b2.clk   clock                   3.580
+ launch clock edge                                           clock                   0.000
+ u_dut/u_ms_counter/reg1_b1|u_dut/u_ms_counter/reg1_b2.q[1]  cell                    0.146
+ u_dut/u_ms_counter/lt0_2|u_dut/u_ms_counter/lt0_1.b[0]      net (fanout = 3)        0.492
+ u_dut/u_ms_counter/lt0_2|u_dut/u_ms_counter/lt0_1.fco       cell                    0.627
+ u_dut/u_ms_counter/lt0_4|u_dut/u_ms_counter/lt0_3.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_4|u_dut/u_ms_counter/lt0_3.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fci      net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fco      cell                    0.073
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.fci   net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.f[1]  cell                    0.355
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.b[1]                  net (fanout = 17)       1.128
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.f[1]                  cell                    0.333
+ u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9.d[0] net (fanout = 14)       0.806
+ u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9      path2reg0               0.549
+ Arrival time                                                                        8.454 (4 lvl)
+                                                                                          (72% logic, 28% net)
+
+ u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9.clk                          3.248
+ capture clock edge                                                                 20.000
+ cell setup                                                                         -0.116
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.204
+ Required time                                                                      23.336
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           14.882 ns
+
+---------------------------------------------------------------------------------------------------------
+
+ Slack (setup check)      14.900 ns                                                       
+ StartPoint:              u_dut/u_ms_counter/reg1_b0|u_dut/u_ms_counter/reg1_b9.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9.d[0] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_ms_counter/reg1_b0|u_dut/u_ms_counter/reg1_b9.clk   clock                   3.580
+ launch clock edge                                           clock                   0.000
+ u_dut/u_ms_counter/reg1_b0|u_dut/u_ms_counter/reg1_b9.q[1]  cell                    0.146
+ u_dut/u_ms_counter/lt0_0|u_dut/u_ms_counter/lt0_cin.b[1]    net (fanout = 3)        0.489
+ u_dut/u_ms_counter/lt0_0|u_dut/u_ms_counter/lt0_cin.fco     cell                    0.539
+ u_dut/u_ms_counter/lt0_2|u_dut/u_ms_counter/lt0_1.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_2|u_dut/u_ms_counter/lt0_1.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_4|u_dut/u_ms_counter/lt0_3.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_4|u_dut/u_ms_counter/lt0_3.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fci      net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fco      cell                    0.073
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.fci   net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.f[1]  cell                    0.355
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.b[1]                  net (fanout = 17)       1.128
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.f[1]                  cell                    0.333
+ u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9.d[0] net (fanout = 14)       0.806
+ u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9      path2reg0               0.549
+ Arrival time                                                                        8.436 (4 lvl)
+                                                                                          (72% logic, 28% net)
+
+ u_dut/u_ms_counter/reg0_b10|u_dut/u_ms_counter/reg0_b9.clk                          3.248
+ capture clock edge                                                                 20.000
+ cell setup                                                                         -0.116
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.204
+ Required time                                                                      23.336
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           14.900 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Paths for end point u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5 (36 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (setup check)      14.713 ns                                                       
+ StartPoint:              u_dut/u_ms_counter/reg1_b13|u_dut/u_ms_counter/reg1_b5.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5.b[1] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_ms_counter/reg1_b13|u_dut/u_ms_counter/reg1_b5.clk  clock                   3.580
+ launch clock edge                                           clock                   0.000
+ u_dut/u_ms_counter/reg1_b13|u_dut/u_ms_counter/reg1_b5.q[0] cell                    0.146
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.b[0]      net (fanout = 3)        0.765
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fco       cell                    0.627
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fci      net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fco      cell                    0.073
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.fci   net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.f[1]  cell                    0.355
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.b[1]                  net (fanout = 17)       1.128
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.f[1]                  cell                    0.333
+ u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5.b[1]  net (fanout = 14)       0.945
+ u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5       path2reg1               0.371
+ Arrival time                                                                        8.542 (4 lvl)
+                                                                                          (67% logic, 33% net)
+
+ u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5.clk                           3.248
+ capture clock edge                                                                 20.000
+ cell setup                                                                         -0.116
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.123
+ Required time                                                                      23.255
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           14.713 ns
+
+---------------------------------------------------------------------------------------------------------
+
+ Slack (setup check)      14.921 ns                                                       
+ StartPoint:              u_dut/u_ms_counter/reg1_b1|u_dut/u_ms_counter/reg1_b2.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5.b[1] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_ms_counter/reg1_b1|u_dut/u_ms_counter/reg1_b2.clk   clock                   3.580
+ launch clock edge                                           clock                   0.000
+ u_dut/u_ms_counter/reg1_b1|u_dut/u_ms_counter/reg1_b2.q[1]  cell                    0.146
+ u_dut/u_ms_counter/lt0_2|u_dut/u_ms_counter/lt0_1.b[0]      net (fanout = 3)        0.492
+ u_dut/u_ms_counter/lt0_2|u_dut/u_ms_counter/lt0_1.fco       cell                    0.627
+ u_dut/u_ms_counter/lt0_4|u_dut/u_ms_counter/lt0_3.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_4|u_dut/u_ms_counter/lt0_3.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fci      net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fco      cell                    0.073
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.fci   net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.f[1]  cell                    0.355
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.b[1]                  net (fanout = 17)       1.128
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.f[1]                  cell                    0.333
+ u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5.b[1]  net (fanout = 14)       0.945
+ u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5       path2reg1               0.371
+ Arrival time                                                                        8.415 (4 lvl)
+                                                                                          (70% logic, 30% net)
+
+ u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5.clk                           3.248
+ capture clock edge                                                                 20.000
+ cell setup                                                                         -0.116
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.204
+ Required time                                                                      23.336
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           14.921 ns
+
+---------------------------------------------------------------------------------------------------------
+
+ Slack (setup check)      14.939 ns                                                       
+ StartPoint:              u_dut/u_ms_counter/reg1_b0|u_dut/u_ms_counter/reg1_b9.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5.b[1] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_ms_counter/reg1_b0|u_dut/u_ms_counter/reg1_b9.clk   clock                   3.580
+ launch clock edge                                           clock                   0.000
+ u_dut/u_ms_counter/reg1_b0|u_dut/u_ms_counter/reg1_b9.q[1]  cell                    0.146
+ u_dut/u_ms_counter/lt0_0|u_dut/u_ms_counter/lt0_cin.b[1]    net (fanout = 3)        0.489
+ u_dut/u_ms_counter/lt0_0|u_dut/u_ms_counter/lt0_cin.fco     cell                    0.539
+ u_dut/u_ms_counter/lt0_2|u_dut/u_ms_counter/lt0_1.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_2|u_dut/u_ms_counter/lt0_1.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_4|u_dut/u_ms_counter/lt0_3.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_4|u_dut/u_ms_counter/lt0_3.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_6|u_dut/u_ms_counter/lt0_5.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fci       net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_8|u_dut/u_ms_counter/lt0_7.fco       cell                    0.073
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fci      net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_10|u_dut/u_ms_counter/lt0_9.fco      cell                    0.073
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_12|u_dut/u_ms_counter/lt0_11.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fci     net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_14|u_dut/u_ms_counter/lt0_13.fco     cell                    0.073
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.fci   net (fanout = 1)        0.000
+ u_dut/u_ms_counter/lt0_cout|u_dut/u_ms_counter/lt0_15.f[1]  cell                    0.355
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.b[1]                  net (fanout = 17)       1.128
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.f[1]                  cell                    0.333
+ u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5.b[1]  net (fanout = 14)       0.945
+ u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5       path2reg1               0.371
+ Arrival time                                                                        8.397 (4 lvl)
+                                                                                          (70% logic, 30% net)
+
+ u_dut/u_ms_counter/reg0_b2|u_dut/u_ms_counter/reg0_b5.clk                           3.248
+ capture clock edge                                                                 20.000
+ cell setup                                                                         -0.116
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.204
+ Required time                                                                      23.336
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           14.939 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Hold checks:
+---------------------------------------------------------------------------------------------------------
+Paths for end point u_dut/u_delay_generator/reg3_b11|u_dut/u_delay_generator/reg3_b12 (1 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (hold check)       0.278 ns                                                        
+ StartPoint:              u_dut/u_delay_generator/reg3_b9|u_dut/u_delay_generator/reg3_b10.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_delay_generator/reg3_b11|u_dut/u_delay_generator/reg3_b12.mi[1] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_delay_generator/reg3_b9|u_dut/u_delay_generator/reg3_b10.clk clock                   3.248
+ launch clock edge                                           clock                   0.000
+ u_dut/u_delay_generator/reg3_b9|u_dut/u_delay_generator/reg3_b10.q[0] cell                    0.140
+ u_dut/u_delay_generator/reg3_b11|u_dut/u_delay_generator/reg3_b12.mi[1] net (fanout = 2)        0.283
+ u_dut/u_delay_generator/reg3_b11|u_dut/u_delay_generator/reg3_b12 path2reg1               0.138
+ Arrival time                                                                        3.809 (1 lvl)
+                                                                                          (93% logic, 7% net)
+
+ u_dut/u_delay_generator/reg3_b11|u_dut/u_delay_generator/reg3_b12.clk                         3.580
+ capture clock edge                                                                  0.000
+ cell hold                                                                           0.074
+ clock uncertainty                                                                   0.000
+ clock recovergence pessimism                                                       -0.123
+ Required time                                                                       3.531
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                            0.278 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Paths for end point u_dut/u_delay_generator/reg3_b1|u_dut/u_delay_generator/reg3_b2 (1 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (hold check)       0.287 ns                                                        
+ StartPoint:              u_dut/u_delay_generator/reg3_b0|u_dut/u_reaction_fsm/ms_clear_reg.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_delay_generator/reg3_b1|u_dut/u_delay_generator/reg3_b2.mi[1] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ u_dut/u_delay_generator/reg3_b0|u_dut/u_reaction_fsm/ms_clear_reg.clk clock                   3.248
+ launch clock edge                                           clock                   0.000
+ u_dut/u_delay_generator/reg3_b0|u_dut/u_reaction_fsm/ms_clear_reg.q[1] cell                    0.140
+ u_dut/u_delay_generator/reg3_b1|u_dut/u_delay_generator/reg3_b2.mi[1] net (fanout = 4)        0.292
+ u_dut/u_delay_generator/reg3_b1|u_dut/u_delay_generator/reg3_b2 path2reg1               0.138
+ Arrival time                                                                        3.818 (1 lvl)
+                                                                                          (93% logic, 7% net)
+
+ u_dut/u_delay_generator/reg3_b1|u_dut/u_delay_generator/reg3_b2.clk                         3.580
+ capture clock edge                                                                  0.000
+ cell hold                                                                           0.074
+ clock uncertainty                                                                   0.000
+ clock recovergence pessimism                                                       -0.123
+ Required time                                                                       3.531
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                            0.287 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Paths for end point u_dut/u_reaction_fsm/u_bcd_result/reg3_b10|u_dut/u_reaction_fsm/u_bcd_result/reg3_b9 (1 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (hold check)       0.357 ns                                                        
+ StartPoint:              _al_u382|u_dut/u_reaction_fsm/reg1_b9.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_reaction_fsm/u_bcd_result/reg3_b10|u_dut/u_reaction_fsm/u_bcd_result/reg3_b9.mi[0] (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.clk                   clock                   3.248
+ launch clock edge                                           clock                   0.000
+ _al_u382|u_dut/u_reaction_fsm/reg1_b9.q[0]                  cell                    0.140
+ u_dut/u_reaction_fsm/u_bcd_result/reg3_b10|u_dut/u_reaction_fsm/u_bcd_result/reg3_b9.mi[0] net (fanout = 3)        0.281
+ u_dut/u_reaction_fsm/u_bcd_result/reg3_b10|u_dut/u_reaction_fsm/u_bcd_result/reg3_b9 path2reg0               0.138
+ Arrival time                                                                        3.807 (1 lvl)
+                                                                                          (93% logic, 7% net)
+
+ u_dut/u_reaction_fsm/u_bcd_result/reg3_b10|u_dut/u_reaction_fsm/u_bcd_result/reg3_b9.clk                         3.580
+ capture clock edge                                                                  0.000
+ cell hold                                                                           0.074
+ clock uncertainty                                                                   0.000
+ clock recovergence pessimism                                                       -0.204
+ Required time                                                                       3.450
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                            0.357 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Recovery checks:
+---------------------------------------------------------------------------------------------------------
+Paths for end point reg2_b1_IN (1 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (recovery check)   17.649 ns                                                       
+ StartPoint:              reg1_b0|reg1_b1_placeOpt_10.clk (rising edge triggered by clock clk)
+ EndPoint:                reg2_b1_IN.rst (rising edge triggered by clock clk)             
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ reg1_b0|reg1_b1_placeOpt_10.clk                             clock                   3.580
+ launch clock edge                                           clock                   0.000
+ reg1_b0|reg1_b1_placeOpt_10.q[0]                            cell                    0.146
+ reg2_b1_IN.rst                                              net (fanout = 2)        1.922
+ reg2_b1_IN                                                  path2reg                0.000
+ Arrival time                                                                        5.648 (1 lvl)
+                                                                                          (66% logic, 34% net)
+
+ reg2_b1_IN.ipclk                                                                    3.060
+ capture clock edge                                                                 20.000
+ cell recovery                                                                       0.033
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.204
+ Required time                                                                      23.297
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           17.649 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Paths for end point reg2_b0_IN (1 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (recovery check)   17.682 ns                                                       
+ StartPoint:              reg1_b0|reg1_b1_placeOpt_10.clk (rising edge triggered by clock clk)
+ EndPoint:                reg2_b0_IN.rst (rising edge triggered by clock clk)             
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ reg1_b0|reg1_b1_placeOpt_10.clk                             clock                   3.580
+ launch clock edge                                           clock                   0.000
+ reg1_b0|reg1_b1_placeOpt_10.q[0]                            cell                    0.146
+ reg2_b0_IN.rst                                              net (fanout = 2)        1.889
+ reg2_b0_IN                                                  path2reg                0.000
+ Arrival time                                                                        5.615 (1 lvl)
+                                                                                          (67% logic, 33% net)
+
+ reg2_b0_IN.ipclk                                                                    3.060
+ capture clock edge                                                                 20.000
+ cell recovery                                                                       0.033
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.204
+ Required time                                                                      23.297
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           17.682 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Paths for end point u_dut/u_input_sync_debounce/reg2_b13|u_dut/u_input_sync_debounce/reg2_b6 (1 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (recovery check)   18.209 ns                                                       
+ StartPoint:              reg1_b0|reg1_b1_placeOpt_6.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_input_sync_debounce/reg2_b13|u_dut/u_input_sync_debounce/reg2_b6.sr (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ reg1_b0|reg1_b1_placeOpt_6.clk                              clock                   3.580
+ launch clock edge                                           clock                   0.000
+ reg1_b0|reg1_b1_placeOpt_6.q[0]                             cell                    0.146
+ u_dut/u_input_sync_debounce/reg2_b13|u_dut/u_input_sync_debounce/reg2_b6.sr net (fanout = 20)       0.993
+ u_dut/u_input_sync_debounce/reg2_b13|u_dut/u_input_sync_debounce/reg2_b6 path2reg                0.143
+ Arrival time                                                                        4.862 (1 lvl)
+                                                                                          (80% logic, 20% net)
+
+ u_dut/u_input_sync_debounce/reg2_b13|u_dut/u_input_sync_debounce/reg2_b6.clk                         3.248
+ capture clock edge                                                                 20.000
+ cell recovery                                                                      -0.300
+ clock uncertainty                                                                  -0.000
+ clock recovergence pessimism                                                        0.123
+ Required time                                                                      23.071
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                           18.209 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Removal checks:
+---------------------------------------------------------------------------------------------------------
+Paths for end point u_dut/u_reaction_fsm/u_bcd_result/reg2_b12|u_dut/u_reaction_fsm/u_bcd_result/reg0_b26 (1 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (removal check)    0.166 ns                                                        
+ StartPoint:              reg1_b0|reg1_b1_placeOpt_1.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_reaction_fsm/u_bcd_result/reg2_b12|u_dut/u_reaction_fsm/u_bcd_result/reg0_b26.sr (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ reg1_b0|reg1_b1_placeOpt_1.clk                              clock                   3.248
+ launch clock edge                                           clock                   0.000
+ reg1_b0|reg1_b1_placeOpt_1.q[0]                             cell                    0.140
+ u_dut/u_reaction_fsm/u_bcd_result/reg2_b12|u_dut/u_reaction_fsm/u_bcd_result/reg0_b26.sr net (fanout = 28)       0.345
+ u_dut/u_reaction_fsm/u_bcd_result/reg2_b12|u_dut/u_reaction_fsm/u_bcd_result/reg0_b26 path2reg                0.109
+ Arrival time                                                                        3.842 (1 lvl)
+                                                                                          (92% logic, 8% net)
+
+ u_dut/u_reaction_fsm/u_bcd_result/reg2_b12|u_dut/u_reaction_fsm/u_bcd_result/reg0_b26.clk                         3.580
+ capture clock edge                                                                  0.000
+ cell removal                                                                        0.300
+ clock uncertainty                                                                   0.000
+ clock recovergence pessimism                                                       -0.204
+ Required time                                                                       3.676
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                            0.166 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Paths for end point _al_u439|u_dut/u_reaction_fsm/u_bcd_result/reg2_b14 (1 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (removal check)    0.166 ns                                                        
+ StartPoint:              reg1_b0|reg1_b1_placeOpt_1.clk (rising edge triggered by clock clk)
+ EndPoint:                _al_u439|u_dut/u_reaction_fsm/u_bcd_result/reg2_b14.sr (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ reg1_b0|reg1_b1_placeOpt_1.clk                              clock                   3.248
+ launch clock edge                                           clock                   0.000
+ reg1_b0|reg1_b1_placeOpt_1.q[0]                             cell                    0.140
+ _al_u439|u_dut/u_reaction_fsm/u_bcd_result/reg2_b14.sr      net (fanout = 28)       0.345
+ _al_u439|u_dut/u_reaction_fsm/u_bcd_result/reg2_b14         path2reg                0.109
+ Arrival time                                                                        3.842 (1 lvl)
+                                                                                          (92% logic, 8% net)
+
+ _al_u439|u_dut/u_reaction_fsm/u_bcd_result/reg2_b14.clk                             3.580
+ capture clock edge                                                                  0.000
+ cell removal                                                                        0.300
+ clock uncertainty                                                                   0.000
+ clock recovergence pessimism                                                       -0.204
+ Required time                                                                       3.676
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                            0.166 ns
+
+---------------------------------------------------------------------------------------------------------
+
+Paths for end point u_dut/u_delay_generator/reg1_b19|u_dut/u_delay_generator/reg1_b27 (1 paths)
+---------------------------------------------------------------------------------------------------------
+ Slack (removal check)    0.166 ns                                                        
+ StartPoint:              reg1_b0|reg1_b1_placeOpt_5.clk (rising edge triggered by clock clk)
+ EndPoint:                u_dut/u_delay_generator/reg1_b19|u_dut/u_delay_generator/reg1_b27.sr (rising edge triggered by clock clk)
+ Clock group:             clk                                                             
+
+ Point                                                       Type                     Incr
+---------------------------------------------------------------------------------------------------------
+ reg1_b0|reg1_b1_placeOpt_5.clk                              clock                   3.248
+ launch clock edge                                           clock                   0.000
+ reg1_b0|reg1_b1_placeOpt_5.q[0]                             cell                    0.140
+ u_dut/u_delay_generator/reg1_b19|u_dut/u_delay_generator/reg1_b27.sr net (fanout = 17)       0.345
+ u_dut/u_delay_generator/reg1_b19|u_dut/u_delay_generator/reg1_b27 path2reg                0.109
+ Arrival time                                                                        3.842 (1 lvl)
+                                                                                          (92% logic, 8% net)
+
+ u_dut/u_delay_generator/reg1_b19|u_dut/u_delay_generator/reg1_b27.clk                         3.580
+ capture clock edge                                                                  0.000
+ cell removal                                                                        0.300
+ clock uncertainty                                                                   0.000
+ clock recovergence pessimism                                                       -0.204
+ Required time                                                                       3.676
+---------------------------------------------------------------------------------------------------------
+ Slack                                                                            0.166 ns
+
+---------------------------------------------------------------------------------------------------------
+
+
+=========================================================================================================
+Timing summary:                                                                           
+---------------------------------------------------------------------------------------------------------
+Constraint path number: 26662 (STA coverage = 99.55%)
+Timing violations: 0 setup errors, and 0 hold errors.
+Minimal setup slack: 14.652, minimal hold slack: 0.278
+
+Timing group statistics: 
+	Clock constraints: 
+	  Clock Name                                  Min Period     Max Freq           Skew      Fanout            TNS
+	  clk (50.000MHz)                                5.348ns     186.986MHz        0.399ns       256        0.000ns
+	Minimum input arrival time before clock: no constraint path
+	Maximum output required time after clock: no constraint path
+	Maximum combinational path delay: no constraint path
+
+---------------------------------------------------------------------------------------------------------

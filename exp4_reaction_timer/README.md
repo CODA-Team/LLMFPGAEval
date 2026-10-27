@@ -1,5 +1,7 @@
 # 实验4：反应速度测试器（上板版）
 
+> 源码发行说明：本文保留原示例的历史验证记录。源码包不附带预生成比特流、旧版 work 目录或复位检查工程；新机器需重新综合并验证。下方命令均从仓库根目录执行。
+
 板卡：**DMZ-EG4S20 / EG4S20BG256**，50 MHz 晶振。
 
 本目录是实验4 面向真实硬件的版本，源设计来自 `work/exp4_top/final_rtl.v`。
@@ -88,13 +90,13 @@
 
 ```bash
 # 从仓库根目录
-bash board/exp4_reaction_timer/sim/run_sim.sh
+bash exp4_reaction_timer/sim/run_sim.sh
 ```
 
 或手动：
 
 ```bash
-cd board/exp4_reaction_timer
+cd exp4_reaction_timer
 C:/iverilog/bin/iverilog.exe -g2012 -I sim \
     -o sim/build/top.vvp rtl/reaction_timer_board.v sim/tb_reaction_timer_top.v
 C:/iverilog/bin/vvp.exe sim/build/top.vvp
@@ -156,17 +158,12 @@ C:/iverilog/bin/vvp.exe sim/build/board.vvp
 
 ## 上板顺序（重要）
 
-先烧最小复位验证，确认 A9 电平，再烧完整设计：
+先核对 A9 复位电平和实际板卡连线，再运行完整设计。原开发过程使用过独立的最小复位检查工程，该工程不在本源码包中；需要时可在网页新建复位/LED 实验验证。
 
 ```bash
-# 1) 最小验证：rst_n 直通 ready_led
-python anlogic/td_flow.py flow    board/exp4_reset_check/flow.tcl
-python anlogic/td_flow.py program board/exp4_reset_check/program.tcl
-#    期望：松开复位 LED 亮，按下 LED 灭
-
-# 2) 完整实验4
-python anlogic/td_flow.py flow    board/exp4_reaction_timer/flow.tcl
-python anlogic/td_flow.py program board/exp4_reaction_timer/program.tcl
+# 完整实验4；program 会实际写入已连接的 FPGA。
+python anlogic/td_flow.py flow    exp4_reaction_timer/flow.tcl
+python anlogic/td_flow.py program exp4_reaction_timer/program.tcl
 ```
 
 烧录成功时日志出现 `Download success`。
@@ -176,11 +173,11 @@ python anlogic/td_flow.py program board/exp4_reaction_timer/program.tcl
 ```bash
 # 从仓库根目录
 python anlogic/td_flow.py check
-python anlogic/td_flow.py flow board/exp4_reaction_timer/flow.tcl
-python anlogic/td_flow.py program board/exp4_reaction_timer/program.tcl
+python anlogic/td_flow.py flow exp4_reaction_timer/flow.tcl
+python anlogic/td_flow.py program exp4_reaction_timer/program.tcl
 ```
 
-本目录的 `reaction_timer_board.bit` 已用上述流程生成；
+运行后将在本目录生成 `reaction_timer_board.bit`（源码包不包含该文件）；
 `flow.tcl` 在 route 之后会生成时序报告并打印 `TIMING WNS/WHS`。
 
 ## 上板实测结果（2026-10-21）

@@ -9,16 +9,16 @@ Agent 不需要读几百行原始日志。
 
 ```bash
 # 仿真（整个 run_sim.sh，7 个 TB）
-python anlogic/td_flow.py sim board/exp4_reaction_timer/sim/run_sim.sh --json
+python anlogic/td_flow.py sim exp4_reaction_timer/sim/run_sim.sh --json
 
 # 重新综合 + 布局布线 + bitgen，然后解析报告
-python anlogic/td_flow.py flow board/exp4_reaction_timer/flow.tcl --json
+python anlogic/td_flow.py flow exp4_reaction_timer/flow.tcl --json
 
 # 不重跑，直接解析上一轮留下的 rpt（快速回归）
-python anlogic/td_flow.py flow board/exp4_reaction_timer/flow.tcl --json --reuse-report
+python anlogic/td_flow.py flow exp4_reaction_timer/flow.tcl --json --reuse-report
 
 # 烧录
-python anlogic/td_flow.py program board/exp4_reaction_timer/program.tcl --json
+python anlogic/td_flow.py program exp4_reaction_timer/program.tcl --json
 
 # 解析器单元测试
 python tools/test_parser.py
@@ -105,10 +105,10 @@ def run_stage(stage: str, target: str, *extra: str) -> dict:
                 print(f"[{e['type']}] {e['message']}  ({e['file']}:{e['line']})")
     return result
 
-sim = run_stage("sim", "board/exp4_reaction_timer/sim/run_sim.sh")
+sim = run_stage("sim", "exp4_reaction_timer/sim/run_sim.sh")
 assert sim["sim"]["fail"] == 0 and sim["sim"]["pass"] >= 37
 
-flow = run_stage("flow", "board/exp4_reaction_timer/flow.tcl",
+flow = run_stage("flow", "exp4_reaction_timer/flow.tcl",
                  "--reuse-report")      # 或去掉 --reuse-report 重新综合
 assert flow["timing"]["wns_ns"] >= 0
 ```

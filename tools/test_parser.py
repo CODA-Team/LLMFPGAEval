@@ -6,7 +6,7 @@
   - min_period_ns == 5.348
   - 关键路径 startpoint / endpoint 非空
   - parse_clock_summary() 找到 clk / 50 MHz / skew
-  - parse_resource() 从真实 TD 日志抓到 LUT=455 / FF=305 / BRAM=0
+  - parse_resource() 从真实 TD 日志抓到 LUT=455 / SEQ=399 / BRAM=0
 
 运行：
     python tools/test_parser.py
@@ -30,10 +30,11 @@ except ImportError:  # 允许从 tools/ 目录直接运行
     import td_report_parser as parser
     import result_schema as schema
 
-EXP4 = os.path.join(ROOT, "board", "exp4_reaction_timer")
-TIMING_RPT = os.path.join(EXP4, "reaction_timer_board_timing.rpt")
-CLOCK_RPT = os.path.join(EXP4, "reaction_timer_board_clock_summary.rpt")
-FLOW_LOG = os.path.join(EXP4, "td_20261021_125537.log")
+EXP4 = os.path.join(ROOT, "exp4_reaction_timer")
+FIXTURES = os.path.join(ROOT, "tests", "fixtures", "td")
+TIMING_RPT = os.path.join(FIXTURES, "reaction_timer_board_timing.rpt")
+CLOCK_RPT = os.path.join(FIXTURES, "reaction_timer_board_clock_summary.rpt")
+FLOW_LOG = os.path.join(FIXTURES, "run-with-license.log")
 
 
 class TestTimingParser(unittest.TestCase):
@@ -117,11 +118,19 @@ class TestClockSummary(unittest.TestCase):
 
 
 class TestResourceParser(unittest.TestCase):
+    def test_registers_packed_with_adders_are_not_zero_flipflops(self):
+        text = '''SYN-4002 : Packing 4 DFF/LATCH to SEQ ...
+SYN-4008 : Packed 5 adder and 4 SEQ to BLE.
+SYN-4008 : Packed 0 LUT and 0 SEQ to BLE.
+SYN-4003 : Packing 0 remaining SEQ's ...
+'''
+        self.assertEqual(parser.parse_resource_text(text)['ff'], 4)
+
 
     def test_resource_real(self):
         res = parser.parse_resource(FLOW_LOG)
         self.assertEqual(res["lut"], 455)
-        self.assertEqual(res["ff"], 305)
+        self.assertEqual(res["ff"], 399)
         self.assertEqual(res["bram"], 0)
 
     def test_resource_missing(self):

@@ -1,5 +1,7 @@
 # 实验：4 位十进制计算器（EG4S20BG256）
 
+> 源码发行说明：以下数值是原示例的历史验证记录，不代表新机器已经完成验证。源码包不含预生成比特流、波形或 work 目录；请配置自己的工具后重新运行。下方命令均从仓库根目录执行。
+
 在 DMZ-EG4S20 上用 4x4 矩阵键盘和 4 位共阴数码管实现一个
 0~9999 的十进制计算器，支持 `+ - * /`、`=`、`C`。
 
@@ -106,10 +108,10 @@ key_row/key_col
 
 ```bash
 # 直接跑
-bash board/exp_calculator/sim/run_sim.sh
+bash exp_calculator/sim/run_sim.sh
 
 # 结构化输出（Agent 用）
-python anlogic/td_flow.py sim board/exp_calculator/sim/run_sim.sh --json
+python anlogic/td_flow.py sim exp_calculator/sim/run_sim.sh --json
 ```
 
 TB 覆盖：
@@ -139,7 +141,7 @@ TB 里的按键由真实矩阵模型驱动：只有被扫描到的行才会把�
 ## 综合 / 布局布线
 
 ```bash
-python anlogic/td_flow.py flow board/exp_calculator/flow.tcl --json
+python anlogic/td_flow.py flow exp_calculator/flow.tcl --json
 ```
 
 实测（2026-10-21）：
@@ -149,7 +151,7 @@ ok=true  exit=0  duration≈30.8s
 WNS = +8.950 ns   WHS = +0.464 ns   TNS = 0
 Minimum period = 11.05 ns
 LUT = 689  FF = 334  BRAM = 0
-bit = board/exp_calculator/calculator_top.bit
+bit = exp_calculator/calculator_top.bit
 ```
 
 `errors` 中只有一条 TD 封装库的
@@ -177,12 +179,12 @@ bit = board/exp_calculator/calculator_top.bit
    ```
 2. 生成比特流：
    ```bash
-   python anlogic/td_flow.py flow board/exp_calculator/flow.tcl --json
+   python anlogic/td_flow.py flow exp_calculator/flow.tcl --json
    ```
    要求 `timing.wns_ns >= 0`；当前为 `+8.950`。
 3. 烧录（会真实写入 FPGA）：
    ```bash
-   python anlogic/td_flow.py program board/exp_calculator/program.tcl --json
+   python anlogic/td_flow.py program exp_calculator/program.tcl --json
    ```
    成功标志为日志中的 `Download success`。
 4. 上电/复位后数码管应显示 `0`。
@@ -200,7 +202,7 @@ bit = board/exp_calculator/calculator_top.bit
 ## 目录
 
 ```text
-board/exp_calculator/
+exp_calculator/
 ├── rtl/
 │   ├── calculator_top.v
 │   ├── keypad_scanner.v

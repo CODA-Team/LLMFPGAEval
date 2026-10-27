@@ -1,0 +1,21 @@
+{
+  "GLM-5.3-Flash": {
+    "provider_id": "micuapi",
+    "model_id": "glm-5.3-flash",
+    "base_url": "https://www.micuapi.ai/v1",
+    "api_key_env": "MICUAPI_API_KEY",
+    "npm": "@ai-sdk/openai-compatible",
+    "usage_adapter": "openai-chat-v1",
+    "user_agent": "Mozilla/5.0",
+    "settings": {}
+  },
+  "DeepSeek-Flash": {
+    "provider_id": "deepseek-official",
+    "model_id": "deepseek-flash",
+    "base_url": "https://api.deepseek.com",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "npm": "@ai-sdk/openai-compatible",
+    "usage_adapter": "deepseek-v1",
+    "settings": {}
+  }
+}

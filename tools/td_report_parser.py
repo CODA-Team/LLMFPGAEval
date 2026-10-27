@@ -264,7 +264,7 @@ def parse_clock_summary(path):
 
 
 _RE_LUT = re.compile(r"Mapping\s+with\s+K=\d+\s*,\s*#lut\s*=\s*(\d+)", re.I)
-_RE_FF = re.compile(r"Packed\s+\d+\s+LUT\s+and\s+(\d+)\s+SEQ", re.I)
+_RE_FF = re.compile(r"Packing\s+(\d+)\s+DFF/LATCH\s+to\s+SEQ", re.I)
 _RE_BRAM = re.compile(r"(\d+)\s+brams?\b", re.I)
 
 
@@ -276,9 +276,11 @@ def parse_resource_text(text):
     m = _RE_LUT.search(text)
     if m:
         out["lut"] = int(m.group(1))
-    m = _RE_FF.search(text)
-    if m:
-        out["ff"] = int(m.group(1))
+    # SEQ packed with LUTs is only one subset; others share adders or stay
+    # standalone. The packing input count includes all sequential cells.
+    seq_counts = _RE_FF.findall(text)
+    if len(seq_counts) == 1:
+        out["ff"] = int(seq_counts[0])
     m = _RE_BRAM.search(text)
     if m:
         out["bram"] = int(m.group(1))
@@ -290,14 +292,17 @@ def parse_resource(flow_log_path):
 
     真实格式（阶段 0 看到的）：
       SYN-2581 : Mapping with K=5, #lut = 455 (3.99), #lev = 5 (2.34)
-      SYN-4008 : Packed 474 LUT and 305 SEQ to BLE.
+      SYN-4002 : Packing 399 DFF/LATCH to SEQ ...
       RUN-1001 : 234 mslices, 234 lslices, 21 pads, 0 brams, 2 dsps
 
-    FF 取 SEQ 触发器数量；BRAM 取 RUN-1001 的 brams。
+    FF 取进入 SEQ 打包的 DFF/LATCH 总数（包含 LUT、adder 和独立 SEQ）；
+    多个打包阶段不猜测总量。BRAM 取 RUN-1001 的 brams。
     抓不到就 None，不做估算。
     """
     try:
-        text = _read_text(flow_log_path)
+        # Retain only resource records; TD logs can be much larger than RAM.
+        with open(flow_log_path, encoding='utf-8', errors='replace') as source:
+            text = ''.join(line for line in source if any(pattern.search(line) for pattern in (_RE_LUT, _RE_FF, _RE_BRAM)))
     except OSError:
         return {"lut": None, "ff": None, "bram": None}
     return parse_resource_text(text)
