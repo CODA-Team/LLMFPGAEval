@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI 设计实验 · RTL LAB</title><link rel="stylesheet" href="/chat.css"><link rel="stylesheet" href="/workspace-layout.css"></head>
+<body>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="/chat"><span class="brandmark">R</span><span>RTL LAB<small>从想法到电路</small></span></a>
+  <div class="navlabel">工作空间</div>
+  <a class="nav active" href="/chat">✧ &nbsp; AI 设计实验</a><a class="nav" href="/">◈ &nbsp; 实现与对比</a>
+  <button id="newSession" class="new-session">＋ 新建实验</button>
+  <div class="navlabel session-label">我的实验 <span id="sessionCount">0</span></div><div id="sessions" class="sessions"></div>
+  <div class="sidebar-bottom"><button id="toolSettingsButton" class="settings-button">◈ &nbsp; TD 与仿真器设置</button><button id="settingsButton" class="settings-button">⚙ &nbsp; API 与模型设置 <span id="keyDot" class="status-dot"></span></button><small>OpenCode · 本地工具执行<br><span id="providerLabel">DeepSeek · 模型推理</span></small></div>
+</aside>
+<div id="sidebarResize" class="column-resizer sidebar-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="调整实验列表宽度" aria-controls="sidebar" aria-valuemin="170" aria-valuemax="420" aria-valuenow="218" title="拖动调整宽度；双击恢复。也可使用左右方向键。"></div>
+<main>
+  <header><div class="header-title"><div class="eyebrow">RTL DESIGN WORKSPACE</div><h1 id="experimentTitle">AI 设计实验</h1></div><div class="header-right"><button class="button header-button" id="renameExperiment" disabled>重命名</button><span class="model-pill" id="modelLabel">deepseek-flash</span><span class="badge" id="sessionStatus">准备开始</span></div></header>
+  <div id="notice" role="status" hidden></div>
+  <div class="layout-toolbar" aria-label="工作区布局"><span class="badge running" id="runningExperiments" hidden></span><button type="button" class="button" id="toggleSidebar" aria-controls="sidebar" aria-expanded="true">收起实验列表</button><button type="button" class="button" id="toggleInspector" aria-controls="inspector" aria-expanded="true">收起工程结果</button><button type="button" class="button layout-reset" id="resetLayout" title="展开两侧栏，并恢复默认宽度">恢复默认布局</button></div>
+  <div class="workspace" id="workspace">
+    <section class="conversation" aria-label="设计对话">
+      <div class="conversation-toolbar"><details id="conversationIndex" class="conversation-index"><summary>对话索引 <span id="conversationIndexCount">0</span></summary><nav id="conversationIndexItems" aria-label="按提问跳转"><p class="hint">开始对话后，在这里跳转到每次提问。</p></nav></details><button type="button" class="button" id="chatLatest">回到最新 ↓</button></div>
+      <div class="chat-scroll" id="chatScroll">
+        <button class="full-flow-example" data-example="使用 DMZ-EG4S20 做一个快速分频演示：输入 clk（50MHz）、低有效同步复位 rst_n，内部 4 位计数器每个上升沿加 1，输出 led 为 count[3]，复位清零。生成 RTL 与自检 Testbench，检查复位和至少 40 个周期，并建立 TD 工程，执行 ModelSim 功能仿真、TD 综合布局布线和 SDF 后仿真。最后给出板上测试步骤，说明这个快速输出需要示波器或逻辑分析仪观察，肉眼不能辨认闪烁。">↗ 板卡实验：从 RTL 到 TD 与 SDF 后仿真</button>
+        <div class="welcome" id="welcome"><div class="welcome-icon">✧</div><h2>描述一个电路，观察它如何被验证。</h2><p>助手编写 RTL 和自检 Testbench，实际运行仿真。<br>失败时读取日志、修改代码，再次测试。</p><div class="examples"><button data-example="设计一个模 10 计数器，输入 clk、低有效同步复位 rst_n、使能 en，输出 4 位 count。使能时每个上升沿加 1，9 后回到 0，未使能时保持。生成 RTL 和 Testbench，覆盖复位、保持、计数、回绕，实际运行仿真并修复失败。">01 <span>模 10 计数器<small>复位 · 使能 · 回绕</small></span>↗</button><button data-example="设计一个 8 位可饱和加法器，输入 a、b，输出 sum 和 overflow。超过 255 时 sum 为 255，否则输出正确和。生成 RTL、自检 Testbench，覆盖 0、普通加法、刚好 255 和溢出，实际仿真直到通过。">02 <span>饱和加法器<small>组合逻辑 · 边界测试</small></span>↗</button></div></div>
+        <div id="messages" class="messages" aria-live="polite"></div><div id="working" class="working" hidden><span class="spinner"></span><span id="workingText">助手正在处理…</span></div>
+      </div>
+      <form id="chatForm" class="composer"><label class="sr-only" for="prompt">描述电路需求或继续提问</label><textarea id="prompt" rows="3" placeholder="描述电路需求。助手会编写 RTL、测试、约束与运行脚本，并根据工具日志迭代。"></textarea><div class="composer-controls"><span class="hint">支持自动修复 RTL、测试和脚本</span><div><button type="button" class="button stop" id="stopButton" hidden>停止</button><button type="submit" class="button" id="sendButton">发送 ↑</button><button type="button" class="button primary" id="startFlow">▶ 启动全流程</button></div></div><div class="composer-note">Enter 发送 · Shift + Enter 换行 <span>全流程执行至 SDF 后仿真</span></div></form>
+    </section>
+    <div id="workspaceResize" class="column-resizer workspace-resizer" role="separator" tabindex="0" aria-orientation="vertical" aria-label="调整对话与工程结果宽度" aria-controls="inspector" aria-valuemin="20" aria-valuemax="80" aria-valuenow="54" title="拖动调整两栏宽度；双击恢复。也可使用左右方向键。"></div>
+    <section class="inspector" id="inspector" aria-label="实验结果">
+      <div class="inspector-header"><h2>工程工作区</h2><div class="storage-actions"><span id="fileCount">0 个文件</span><button id="cleanupFiles" class="button" disabled>清理文件</button></div></div>
+      <div class="source-location"><div class="source-actions"><button id="openSourceFolder" class="button" disabled>打开源码目录 ↗</button><button id="copySourcePath" class="button" disabled>复制路径</button><span id="experimentId" class="run-meta"></span></div><details><summary>源码位置</summary><code id="sourcePath">新建实验后显示源码目录。</code><p class="hint">实验目录内的“实验说明.txt”（与 source 同级）及 sessions 下的“实验索引.md”可用于查找设计。</p></details></div>
+      <details class="verification-card" id="verificationCard"><summary><strong id="verificationTitle">等待生成</strong></summary><p id="verificationDetail">代码生成后，仿真器将给出真实结果。</p><small>生成的自检用例 · 非独立验收 / 非上板验证</small></details>
+      <div class="tabs" role="tablist"><button class="tab active" data-tab="flow" role="tab" aria-selected="true">流程</button><button class="tab" data-tab="code" role="tab" aria-selected="false">工程文件</button><button class="tab" data-tab="runs" role="tab" aria-selected="false">仿真记录 <span id="runCount">0</span></button><button class="tab" data-tab="changes" role="tab" aria-selected="false">修改记录</button></div>
+      <div id="codePanel" class="tab-panel" hidden><div class="file-toolbar"><select id="fileSelect" aria-label="选择 RTL、Testbench、约束或脚本"><option>暂无文件</option></select><button id="downloadCode" title="下载当前工程文件" class="icon-button" disabled>↓</button></div><pre id="codeView" class="code-view">// RTL、Testbench、约束和脚本会显示在这里</pre></div>
+      <div id="runsPanel" class="tab-panel" hidden><div id="runs" class="run-list"><p class="empty">尚未运行仿真。</p></div></div>
+      <div id="changesPanel" class="tab-panel" hidden><div id="changes" class="changes"><p class="empty">每次代码修改都会留下差异记录。</p></div></div>
+      <div id="flowPanel" class="tab-panel">
+        <div class="flow-content"><div id="flowStages"></div><div id="flowProject"></div><div id="flowEvidence"></div>
+          <form id="programForm" class="board-form"><h3>SRAM 下载</h3><p id="programGate">完成当前版本的功能仿真、TD 实现及 SDF 后仿真后可用。</p><label class="checkbox-label"><input type="checkbox" id="boardConfirmed">已核对 DMZ-EG4S20 型号、引脚、电压、供电及 JTAG 连接</label><label for="programConfirm">输入 PROGRAM SRAM 确认本次下载</label><input id="programConfirm" autocomplete="off" spellcheck="false" placeholder="PROGRAM SRAM"><button id="programBoard" class="button primary" disabled>下载到板卡 SRAM</button><p class="hint">下载结果不代表板上功能验证通过。</p></form>
+          <form id="observationForm" class="board-form"><h3>板上功能验证 · 人工记录</h3><label for="boardProcedure">实际执行的测试步骤</label><textarea id="boardProcedure" maxlength="4000" placeholder="例如：复位后观察 LED，按键后检查状态转换。"></textarea><label for="boardObserved">实际观察结果</label><textarea id="boardObserved" maxlength="4000" placeholder="记录实物表现，包括不符合预期的现象。"></textarea><select id="boardPassed" aria-label="板上观察结论"><option value="">请选择实测结论</option><option value="true">通过预定测试</option><option value="false">未通过预定测试</option></select><button id="saveObservation" class="button" disabled>保存人工观察</button><div id="observationRecord"></div></form>
+        </div>
+      </div>
+      <div class="usage"><span>会话 token <b id="tokenCount">—</b></span><span>工具报告费用 <b id="costValue">未报告</b></span></div>
+    </section>
+  </div>
+</main>
+<dialog id="newExperimentDialog" aria-labelledby="newExperimentHeading"><form id="newExperimentForm">
+  <div class="dialog-head"><h2 id="newExperimentHeading">新建实验</h2></div>
+  <label for="experimentName">实验名称</label><input id="experimentName" maxlength="100" autocomplete="off" placeholder="例如：四位计算器实验" autofocus>
+  <p class="hint">最多 100 个字符，留空使用“新实验”。创建后在对话中描述设计需求。</p>
+  <div id="newExperimentNotice" role="status" class="settings-notice"></div>
+  <div class="dialog-actions"><button type="button" id="cancelNewExperiment" class="button">取消</button><button type="submit" id="createExperiment" class="button primary">创建实验</button></div>
+</form></dialog>
+<dialog id="renameExperimentDialog" aria-labelledby="renameExperimentHeading"><form id="renameExperimentForm">
+  <div class="dialog-head"><h2 id="renameExperimentHeading">重命名实验</h2></div>
+  <label for="renameExperimentName">实验名称</label><input id="renameExperimentName" maxlength="100" required autocomplete="off">
+  <p class="hint">名称同步到实验说明与目录索引。源码路径、对话和运行记录保留。</p>
+  <div id="renameExperimentNotice" role="status" class="settings-notice"></div>
+  <div class="dialog-actions"><button type="button" id="cancelRenameExperiment" class="button">取消</button><button type="submit" class="button primary">保存名称</button></div>
+</form></dialog>
+<dialog id="cleanupDialog" aria-labelledby="cleanupHeading">
+  <div class="dialog-head"><h2 id="cleanupHeading">清理实验文件</h2><button type="button" id="closeCleanup" class="icon-button" aria-label="关闭清理窗口">×</button></div>
+  <p id="cleanupSummary" class="dialog-intro"></p>
+  <div class="cleanup-filters"><input id="cleanupSearch" type="search" placeholder="搜索文件名、运行目录…" aria-label="搜索实验文件"><select id="cleanupKind" aria-label="筛选文件类型"><option value="all">全部文件</option><option value="waveform">波形</option><option value="log">日志与报告</option><option value="source">当前源码</option><option value="evidence">运行产物与快照</option><option value="other">其他文件</option></select></div>
+  <div class="cleanup-selection"><button type="button" id="selectVisibleFiles" class="button">全选当前列表</button><button type="button" id="clearCleanupSelection" class="button">清空选择</button><span id="cleanupSelected" class="hint"></span></div>
+  <div id="cleanupList" class="cleanup-list" aria-label="可清理文件"></div>
+  <p class="hint">按文件大小排序。实验与运行索引单独保留；删除整个实验时会一起移除。清理日志、网表或源码可能使验证证据失效。</p>
+  <div id="cleanupNotice" role="status" class="settings-notice"></div>
+  <div class="dialog-actions"><button type="button" id="cancelCleanup" class="button">关闭</button><button type="button" id="reviewCleanup" class="button danger" disabled>删除所选文件…</button></div>
+</dialog>
+<dialog id="deleteConfirmDialog" aria-labelledby="deleteConfirmHeading"><form id="deleteConfirmForm">
+  <div class="dialog-head"><h2 id="deleteConfirmHeading">确认删除</h2></div>
+  <p id="deleteConfirmSummary" class="delete-summary"></p><code id="deleteConfirmDirectory" class="delete-directory"></code>
+  <p id="deleteConfirmImpact" class="delete-impact"></p>
+  <details class="delete-file-details"><summary id="deleteConfirmCount">查看文件清单</summary><ul id="deleteConfirmFiles"></ul></details>
+  <p class="hint">永久删除，不进入回收站。请核对实验名称和文件范围。</p>
+  <div id="deleteConfirmNotice" role="status" class="settings-notice"></div>
+  <div class="dialog-actions"><button type="button" id="cancelDelete" class="button">取消</button><button type="submit" id="confirmDeleteButton" class="button danger">确认删除</button></div>
+</form></dialog>
+<dialog id="settingsDialog"><form id="settingsForm">
+  <div class="dialog-head"><div><div class="eyebrow">MODEL CONNECTION</div><h2>API 与模型设置</h2></div><button type="button" id="closeSettings" class="icon-button" aria-label="关闭设置">×</button></div>
+  <p class="dialog-intro">直接填写模型配置 JSON。官方 API 或任意兼容中转站使用同一格式，可保存多个模型并选择使用哪一个。</p>
+  <label for="connectionJson">模型配置 JSON</label>
+  <textarea id="connectionJson" class="json-editor model-catalog-editor" rows="15" spellcheck="false" aria-describedby="connectionJsonNotice"></textarea>
+  <div class="json-actions"><label class="button file-import">导入 JSON 文件<input id="connectionJsonFile" type="file" accept=".json,application/json"></label><button type="button" id="formatModelJson" class="button">格式化</button><button type="button" id="copyConnectionJson" class="button">复制 JSON</button></div>
+  <p id="connectionJsonNotice" role="status" class="hint">JSON 是实际保存的模型配置；编辑完成后点击“保存设置”即可。</p>
+  <label for="modelProfile">当前使用的模型</label><select id="modelProfile" aria-describedby="modelProfileSummary"></select>
+  <p id="modelProfileSummary" class="hint"></p>
+  <details class="model-json-help"><summary>配置格式与字段说明</summary><pre class="raw-log">{
+  "我的模型": {
+    "provider_id": "my-provider",
+    "model_id": "model-id",
+    "base_url": "https://api.example.com/v1",
+    "api_key_env": "MY_API_KEY",
+    "npm": "@ai-sdk/openai-compatible",
+    "usage_adapter": "openai-chat-v1",
+    "user_agent": "Mozilla/5.0",
+    "settings": {}
+  }
+}</pre><p class="hint">npm 选择协议：@ai-sdk/openai-compatible（Chat Completions）、@ai-sdk/openai（Responses）、@ai-sdk/deepseek 或 @ai-sdk/anthropic。settings 填模型参数，例如 reasoningEffort、max_tokens、temperature、top_p；空对象表示不额外指定参数。</p><p class="hint">api_key_env 是环境变量名称，不是密钥本身。usage_adapter 为用量格式标识，可用 openai-chat-v1、deepseek-v1、openai-responses-v1、anthropic-v1；token 数据由 OpenCode 统一记录。可选 headers 填附加非鉴权请求头，limit 可声明模型的 context 与 output 容量。</p></details>
+  <div class="model-credential"><label id="apiKeyLabel" for="apiKey">当前模型的密钥（可选）</label><input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="环境变量已配置或已有保存密钥时可留空"><p id="credentialState" class="hint"></p><label class="checkbox-label"><input id="rememberKey" type="checkbox">在这台 Windows 电脑上加密保存</label><p class="hint">网页输入的密钥绑定当前 api_key_env；无需写入 JSON。不同环境变量的密钥分别保存。</p></div>
+  <details><summary>运行与并行上限（默认不限制）</summary>
+    <label for="parallelExperimentLimit">同时运行的实验数上限（可选）</label><input id="parallelExperimentLimit" type="number" min="1" step="1" placeholder="留空不限制，例如 4"><p class="hint">不同实验独立运行和停止；同一实验按顺序执行。API 与工具路径设置由所有实验共用，运行结束后可修改。</p>
+    <label for="turnTimeLimit">单轮时长上限（分钟，可选）</label><input id="turnTimeLimit" type="number" min="1" step="1" max="2147483647" placeholder="留空不限制，例如 60">
+    <label for="agentStepLimit">助手步骤上限（可选）</label><input id="agentStepLimit" type="number" min="1" step="1" max="2147483647" placeholder="留空不限制，例如 100">
+    <label for="functionalRunLimit">功能仿真次数上限（可选）</label><input id="functionalRunLimit" type="number" min="1" step="1" max="2147483647" placeholder="留空不限制，例如 10">
+    <label for="implementationRunLimit">TD 实现次数上限（可选）</label><input id="implementationRunLimit" type="number" min="1" step="1" max="2147483647" placeholder="留空不限制，例如 10">
+    <label for="postRouteRunLimit">后仿真次数上限（可选）</label><input id="postRouteRunLimit" type="number" min="1" step="1" max="2147483647" placeholder="留空不限制，例如 10">
+    <label for="queryRunLimit">工具查询次数上限（可选）</label><input id="queryRunLimit" type="number" min="1" step="1" placeholder="留空不限制">
+    <label for="continuationLimit">模型异常中断后的自动续跑次数上限（可选）</label><input id="continuationLimit" type="number" min="1" step="1" placeholder="留空不限制">
+    <label for="messageCharLimit">单条需求字符上限（可选）</label><input id="messageCharLimit" type="number" min="1" step="1" placeholder="留空不限制">
+    <p class="hint">以上各项独立设置，留空不限制，填写正整数后从下一轮开始生效。失败后重跑也计次数，自动续跑不会重置额度；你仍可随时点击停止。一步指一次助手模型迭代，可包含多个工具调用。</p>
+    <p class="hint">单次输出 token 不等于整个实验累计用量。模型异常截断会在同一会话自动续跑，次数上限也可选填。</p>
+  </details>
+  <details><summary>本地 OpenCode 路径</summary><input id="executableInput" aria-label="opencode.exe 路径" spellcheck="false"></details>
+  <div id="settingsNotice" role="status" class="settings-notice"></div><div class="dialog-actions"><button type="button" id="checkConnection" class="button">检查已保存的连接</button><button type="submit" class="button primary">保存设置</button></div><button type="button" id="clearKey" class="clear-key">清除已配置的密钥</button>
+</form></dialog>
+<dialog id="toolSettingsDialog"><form id="toolSettingsForm"><div class="dialog-head"><h2>TD 与仿真器设置</h2><button type="button" id="closeToolSettings" class="icon-button" aria-label="关闭工具设置">×</button></div><p class="dialog-intro">填写这台电脑上的安装路径。完整 FPGA 流程使用 ModelSim；工具和许可证不会随源码发布。</p><label for="simulationBackend">功能仿真器</label><select id="simulationBackend"><option value="modelsim">ModelSim · 完整 FPGA 流程</option><option value="icarus">Icarus · 仅辅助 RTL 自检</option></select><label for="tdRoot">Windows TD 安装目录</label><input id="tdRoot" spellcheck="false"><label for="modelsimRoot">ModelSim 安装目录（包含 win64）</label><input id="modelsimRoot" spellcheck="false"><label for="modelsimLicense">许可证路径或端口@服务器</label><input id="modelsimLicense" spellcheck="false" placeholder="留空使用安装目录 licenses/LICENSE.TXT 或现有环境变量"><details><summary>辅助 Icarus 路径</summary><label for="iverilogPath">iverilog.exe</label><input id="iverilogPath" spellcheck="false"><label for="vvpPath">vvp.exe</label><input id="vvpPath" spellcheck="false"></details><details><summary>运行时长与文件上限（可选）</summary><p class="hint">时间、源文件数量与大小默认不限制。日志和波形默认各 1024 MiB（1 GiB）；留空可取消上限。文件保存在磁盘，助手按需读取片段。点击停止仍可中止运行。</p><label for="simulationTimeLimit">单次功能/后仿真时长（秒）</label><input id="simulationTimeLimit" type="number" min="1" step="1" placeholder="留空不限制"><label for="implementationTimeLimit">单次 TD 实现/查询时长（秒）</label><input id="implementationTimeLimit" type="number" min="1" step="1" placeholder="留空不限制"><label for="programmingTimeLimit">单次下载时长（秒）</label><input id="programmingTimeLimit" type="number" min="1" step="1" placeholder="留空不限制"><label for="sourceFileLimit">工程源文件数量</label><input id="sourceFileLimit" type="number" min="1" step="1" placeholder="留空不限制"><label for="sourceSizeLimit">单个源文件大小（KiB）</label><input id="sourceSizeLimit" type="number" min="1" step="1" placeholder="留空不限制"><label for="logSizeLimit">单个日志文件大小（MiB）</label><input id="logSizeLimit" type="number" min="1" step="1" placeholder="留空不限制"><label for="waveSizeLimit">单个波形文件大小（MiB）</label><input id="waveSizeLimit" type="number" min="1" step="1" placeholder="留空不限制"></details><p class="hint">相对路径以源码目录为基准。配置会在下一轮对话应用；运行日志会记录工具错误。</p><div id="toolSettingsNotice" role="status" class="settings-notice"></div><div class="dialog-actions"><button class="button primary">保存工具设置</button></div></form></dialog>
+<script src="/eda-view.js"></script><script src="/chat-conversation.js"></script><script src="/workspace-layout.js"></script><script src="/chat.js"></script>
+</body></html>

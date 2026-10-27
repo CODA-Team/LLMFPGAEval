@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RTL 对照工作台</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<aside class="sidebar">
+  <div class="brand"><span class="brandmark">R</span><div>RTL LAB<small>FPGA × ASIC</small></div></div>
+  <div class="navlabel">工作空间</div><a class="nav" href="/chat">✧ &nbsp; AI 设计实验</a><div class="nav active">◈ &nbsp; 实现与对比</div>
+  <button class="nav" id="settingsButton">⚙ &nbsp; 环境配置</button>
+  <div class="navlabel historylabel">最近任务 <span id="historyCount">0</span></div>
+  <div id="history" class="history"></div>
+  <div class="sidebarfoot"><span class="dot"></span> 本地运行 · 数据保存在工程目录<small>Windows TD / Linux ORFS</small></div>
+</aside>
+<main>
+  <header><div><div class="eyebrow">IMPLEMENT · VERIFY · COMPARE</div><h1>一份 RTL，两种实现</h1><p>从功能验证到物理实现，保留每一次运行的依据。</p></div><button id="checkButton" class="button secondary">检查工具环境</button></header>
+  <div id="notice" role="status" hidden></div>
+  <section class="launchpanel">
+    <div class="field"><label for="project">设计工程</label><select id="project"></select></div>
+    <div class="targetfield"><label>执行流程</label><div class="targets"><label><input type="checkbox" id="useFpga" checked> FPGA · 本地 TD</label><label><input type="checkbox" id="useAsic" checked> ASIC · 远程 ORFS</label></div></div>
+    <button id="runButton" class="button primary">运行对比 <span>↗</span></button>
+  </section>
+  <div class="sectiontitle"><h2 id="jobTitle">运行概览</h2><span id="jobStatus" class="badge neutral">等待首次运行</span></div>
+  <div class="overview">
+    <article class="stat"><div class="statlabel">共同 RTL 功能仿真</div><strong id="simValue">—</strong><span id="simNote">Icarus 自检 Testbench</span></article>
+    <article class="stat"><div class="statlabel">FPGA 最差建立裕量</div><strong id="fpgaValue">—</strong><span>布局布线后 · ns</span></article>
+    <article class="stat"><div class="statlabel">ASIC 最差建立裕量</div><strong id="asicValue">—</strong><span>布局布线后 · ns</span></article>
+    <article class="stat"><div class="statlabel">设计约束</div><strong id="clockValue">50 <small>MHz</small></strong><span id="deviceValue">EG4S20BG256 / Nangate45</span></article>
+  </div>
+  <div class="flows">
+    <article class="flowcard"><div class="flowhead"><div><span class="flowicon">F</span><h3>FPGA <small>Windows · TD 4.6.7</small></h3></div><span id="fpgaBadge" class="badge neutral">待运行</span></div><p>综合 → 布局 → 布线 → 位流</p><div class="flowfooter"><span id="fpgaDuration">等待编译</span><button id="programButton" class="button compact" disabled>烧录 SRAM</button></div></article>
+    <article class="flowcard"><div class="flowhead"><div><span class="flowicon asic">A</span><h3>ASIC <small>Linux · OpenROAD Flow</small></h3></div><span id="asicBadge" class="badge neutral">待运行</span></div><p>综合 → 布局 → 时钟树 → 布线 → GDS</p><div class="flowfooter"><span id="asicDuration">通过 SSH 执行</span><span id="platformLabel" class="chip">nangate45</span></div></article>
+  </div>
+  <section class="comparison">
+    <div class="sectiontitle"><div><h2>结果对比</h2><p class="muted">“未验证”与“未测得”保留为未知，不计作通过或零。</p></div><button id="powerButton" class="button compact" disabled>补充 FPGA 功耗证据</button></div>
+    <table><thead><tr><th>指标 / 验证范围</th><th>FPGA · EG4S20</th><th>ASIC · ORFS</th></tr></thead><tbody id="metricsBody"></tbody></table>
+    <div class="comparisonnote">LUT 与标准单元面积分别统计。ASIC 功耗默认是活动率估计；不同工艺、活动条件或芯片/整板范围的功耗不直接求比值。</div>
+  </section>
+  <section class="evidence"><div class="sectiontitle"><div><h2>运行依据</h2><p id="hashNote" class="mono muted">每次任务生成独立源码快照与 SHA-256</p></div><a id="resultLink" class="textlink" hidden>导出结果 JSON ↗</a></div><div class="logtools"><select id="logSelect" aria-label="查看运行文件"><option>暂无文件</option></select><a id="downloadLink" class="textlink" hidden>打开 / 下载文件 ↗</a></div><pre id="logView">选择工程，开始第一次运行。</pre></section>
+  <footer>RTL LAB · 当前不自动执行板卡烧录；编译成功不能替代映射后验证或上板测试。</footer>
+</main>
+<dialog id="settingsDialog"><form id="settingsForm"><div class="dialoghead"><h2>环境配置</h2><button type="button" class="close" data-close="settingsDialog">×</button></div><p>使用系统 OpenSSH；已有密钥、ssh-agent 和 SSH 配置均可复用。</p><div id="configFields"></div><div class="dialogactions"><button type="button" class="button secondary" data-close="settingsDialog">取消</button><button class="button primary" type="submit">保存配置</button></div></form></dialog>
+<dialog id="powerDialog"><form id="powerForm"><div class="dialoghead"><h2>补充 FPGA 功耗证据</h2><button type="button" class="close" data-close="powerDialog">×</button></div><p>关联当前任务的 RTL 校验值，保存报告副本；不会自动判断它与 ASIC 估计可直接比较。</p><label>总功耗（mW）<input name="total_mw" type="number" min="0" step="any" required></label><label>频率（MHz）<input name="frequency_mhz" type="number" min="0.001" step="any" value="50" required></label><label>方法<select name="method"><option value="td_estimator">TD Power Estimator</option><option value="measured">硬件实测</option></select></label><label>范围<select name="scope"><option value="fpga_chip">FPGA 芯片</option><option value="whole_board">整块开发板</option></select></label><label>工作负载 / 翻转率 / 电压温度等条件<input name="activity" required placeholder="如：50 MHz、空闲/运行、温度、电压、翻转率"></label><label>原始报告或测量证据的本地文件路径<input name="evidence_path" required placeholder="D:\...\power-report.pdf"></label><div class="dialogactions"><button class="button primary" type="submit">保存证据</button></div></form></dialog>
+<script src="/app.js"></script>
+</body></html>
